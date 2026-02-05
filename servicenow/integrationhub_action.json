@@ -1,0 +1,36 @@
+{
+  "name": "Snowflake_MCP_Insight",
+  "type": "integrationhub_action",
+  "description": "Calls Snowflake MCP server for telecom insight and returns prediction payload.",
+  "inputs": [
+    { "name": "region", "type": "string", "required": true },
+    { "name": "time_window", "type": "string", "required": true },
+    { "name": "kpi_list", "type": "array", "required": true }
+  ],
+  "steps": [
+    {
+      "name": "Call_MCP",
+      "type": "rest",
+      "endpoint": "https://<account_url>/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/mcp-servers/TELCO_ASSURANCE_MCP",
+      "method": "POST",
+      "headers": {
+        "Authorization": "Bearer ${oauth_token}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "tools/call",
+        "params": {
+          "name": "sql_exec_tool",
+          "arguments": {
+            "sql": "SELECT * FROM RADIO_KPI_V WHERE region = '${region}' LIMIT 100"
+          }
+        }
+      }
+    }
+  ],
+  "outputs": [
+    { "name": "mcp_response", "type": "object" }
+  ]
+}

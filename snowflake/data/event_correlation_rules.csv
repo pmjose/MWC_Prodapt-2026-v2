@@ -1,0 +1,5 @@
+rule_id,name,match_condition,action_field,severity,action
+RULE-001,Cell congestion -> Incident,"alarm_code in (CELL_CONGESTION, RF_DEGRADATION)",incident_number,MAJOR,Create or link incident
+RULE-002,Backhaul anomalies,"alarm_code in (BACKHAUL_LATENCY, PACKET_LOSS)",incident_number,MINOR,Enrich incident and escalate
+RULE-003,Core CPU high,alarm_code = CORE_CPU_HIGH,incident_number,WARNING,Create core performance incident
+RULE-004,Mobility issues,"alarm_code in (HO_FAILURE_RATE, RACH_CONGESTION)",incident_number,MINOR,Link to mobility incident

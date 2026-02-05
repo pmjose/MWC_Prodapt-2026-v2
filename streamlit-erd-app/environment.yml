@@ -1,0 +1,6 @@
+name: streamlit-erd-app
+channels:
+  - snowflake
+dependencies:
+  - snowflake-snowpark-python
+  - streamlit

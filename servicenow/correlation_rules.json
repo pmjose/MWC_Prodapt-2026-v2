@@ -1,0 +1,32 @@
+{
+  "rules": [
+    {
+      "id": "RULE-001",
+      "name": "Cell congestion to incident",
+      "match": "alarm_code IN (CELL_CONGESTION, RF_DEGRADATION)",
+      "action": "create_or_link_incident",
+      "severity": "MAJOR"
+    },
+    {
+      "id": "RULE-002",
+      "name": "Backhaul anomaly",
+      "match": "alarm_code IN (BACKHAUL_LATENCY, PACKET_LOSS)",
+      "action": "escalate_transport_incident",
+      "severity": "MINOR"
+    },
+    {
+      "id": "RULE-003",
+      "name": "Core CPU high",
+      "match": "alarm_code = CORE_CPU_HIGH",
+      "action": "create_core_incident",
+      "severity": "WARNING"
+    },
+    {
+      "id": "RULE-004",
+      "name": "Mobility issues",
+      "match": "alarm_code IN (HO_FAILURE_RATE, RACH_CONGESTION)",
+      "action": "link_mobility_incident",
+      "severity": "MINOR"
+    }
+  ]
+}

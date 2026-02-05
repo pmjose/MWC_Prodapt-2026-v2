@@ -1,0 +1,364 @@
+sys_id,ci_id,ci_class,region,ci_name,operational_status,ci_type,parent_ci,sys_created_on,sys_updated_on,sys_created_by,sys_updated_by,sys_domain
+5358081d63864dcb85d1369b432096bd,SITE-01,cmdb_ci_site,BARCELONA,BCN-SITE-01,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d9fedf0520b645f6aee5db242bc7ba4b,SITE-02,cmdb_ci_site,BARCELONA,BCN-SITE-02,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+65e044e3927949fabace210f3aefa72d,SITE-03,cmdb_ci_site,BARCELONA,BCN-SITE-03,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d9ec3fb5ebdc42e697660857f90a3b1f,SITE-04,cmdb_ci_site,BARCELONA,BCN-SITE-04,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+406a7870b8dc48b98339be19b61d9593,SITE-05,cmdb_ci_site,BARCELONA,BCN-SITE-05,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8d4e6944c48b4dac80bce2faeb394351,SITE-06,cmdb_ci_site,BARCELONA,BCN-SITE-06,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+fdfb63d818ed4000b29916de351891fd,SITE-07,cmdb_ci_site,BARCELONA,BCN-SITE-07,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+cb9bb4e127b84e0fbcb66e91a4b33a94,SITE-08,cmdb_ci_site,BARCELONA,BCN-SITE-08,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+89c4e1314946448293ce22462e2957a0,SITE-09,cmdb_ci_site,BARCELONA,BCN-SITE-09,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+bd9aabcf17ae46d1939d22fcea02e9b8,SITE-10,cmdb_ci_site,BARCELONA,BCN-SITE-10,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+e1c2cbb04e5a43098c73527308cea4b9,SITE-11,cmdb_ci_site,BARCELONA,BCN-SITE-11,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d2973ac667354ca28f0be5317edf9187,SITE-12,cmdb_ci_site,BARCELONA,BCN-SITE-12,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+276c0fce29344a35945b9d3fc0bc982f,SITE-13,cmdb_ci_site,BARCELONA,BCN-SITE-13,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+dcd272496b6d460489ce632fa81ade97,SITE-14,cmdb_ci_site,BARCELONA,BCN-SITE-14,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+52f9b106841b46c88967fc2a833aa5a7,SITE-15,cmdb_ci_site,BARCELONA,BCN-SITE-15,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+56983fb369b2473192d0ec90c043c587,SITE-16,cmdb_ci_site,BARCELONA,BCN-SITE-16,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+5fd9670cf30d4b6292637c3cfcd9e0a2,SITE-17,cmdb_ci_site,BARCELONA,BCN-SITE-17,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+f022fed1d6a4424c99d7b90c33e65628,SITE-18,cmdb_ci_site,BARCELONA,BCN-SITE-18,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8ab3b63ec5284843b6529312457fa487,SITE-19,cmdb_ci_site,BARCELONA,BCN-SITE-19,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+1b6b266404104350bf9481b0a41a693d,SITE-20,cmdb_ci_site,BARCELONA,BCN-SITE-20,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+03cccc18c4f04a7887c1009f258b97d9,SITE-21,cmdb_ci_site,BARCELONA,BCN-SITE-21,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+1263d990828c4c1995bdceb3fa062024,SITE-22,cmdb_ci_site,BARCELONA,BCN-SITE-22,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+83c2922197614bcc8bae7221518a7961,SITE-23,cmdb_ci_site,BARCELONA,BCN-SITE-23,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+74ecfd096c15454ca4fe457ffa435789,SITE-24,cmdb_ci_site,BARCELONA,BCN-SITE-24,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d4f71d4273a34b6f8b5a3bf0bbf13015,SITE-25,cmdb_ci_site,BARCELONA,BCN-SITE-25,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+082a994c9bde439b958204a2c3c95fdc,SITE-26,cmdb_ci_site,BARCELONA,BCN-SITE-26,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+21fc56e2004643db961c5153cebe4cf5,SITE-27,cmdb_ci_site,BARCELONA,BCN-SITE-27,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+592f3741011b47afa42745cac524e720,SITE-28,cmdb_ci_site,BARCELONA,BCN-SITE-28,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9d5ab27ade2c4e26916a495dba921ff7,SITE-29,cmdb_ci_site,BARCELONA,BCN-SITE-29,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+0c332f516cf54a7397e85e057be44938,SITE-30,cmdb_ci_site,BARCELONA,BCN-SITE-30,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+04ea24279ddf4d888168e4a1be487422,SITE-31,cmdb_ci_site,BARCELONA,BCN-SITE-31,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+128b334ac47a450086a65ae2cfd2ed6f,SITE-32,cmdb_ci_site,BARCELONA,BCN-SITE-32,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c2528607f20044429c27cfbe9924dc93,SITE-33,cmdb_ci_site,BARCELONA,BCN-SITE-33,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+f63e4f5d12874d5cb09c9c3c6f193242,SITE-34,cmdb_ci_site,BARCELONA,BCN-SITE-34,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+ac9a2469072f40fab66cdd21f82e4216,SITE-35,cmdb_ci_site,BARCELONA,BCN-SITE-35,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d78282978f1a4a1282bd7cca6a30920b,SITE-36,cmdb_ci_site,BARCELONA,BCN-SITE-36,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b2be4939b64e4a92b5f119cafb034fc5,SITE-37,cmdb_ci_site,BARCELONA,BCN-SITE-37,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+373848c350b84460808fc972f126c0ad,SITE-38,cmdb_ci_site,BARCELONA,BCN-SITE-38,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+ce6674521f39470bb0fb430e7fde5287,SITE-39,cmdb_ci_site,BARCELONA,BCN-SITE-39,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+979c314925b84a0a98c9e649ec06587f,SITE-40,cmdb_ci_site,BARCELONA,BCN-SITE-40,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8cda8b1d0d724ed4b3712fbd96bfd1b9,SITE-41,cmdb_ci_site,BARCELONA,BCN-SITE-41,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+4d1a2de3c00a4533b148d248373ac4b9,SITE-42,cmdb_ci_site,BARCELONA,BCN-SITE-42,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+019a4b1ff1b84aacb574da61a4840470,SITE-43,cmdb_ci_site,BARCELONA,BCN-SITE-43,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+71591e0006b74b858e54a6e0f470be69,SITE-44,cmdb_ci_site,BARCELONA,BCN-SITE-44,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+759ed793ee704f869d89ebb1cddd2e78,SITE-45,cmdb_ci_site,BARCELONA,BCN-SITE-45,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8bba3b23428448eb83df7118caf31df3,SITE-46,cmdb_ci_site,BARCELONA,BCN-SITE-46,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+cc554b772a52406b9da5026ddfe55698,SITE-47,cmdb_ci_site,BARCELONA,BCN-SITE-47,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+66aee0871da646878c03437dcab44c2d,SITE-48,cmdb_ci_site,BARCELONA,BCN-SITE-48,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9689ffe0d482496d85c4fc3cd7d9f78c,SITE-49,cmdb_ci_site,BARCELONA,BCN-SITE-49,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b6b79848dada45a0bceb5aebb213ca8c,SITE-50,cmdb_ci_site,BARCELONA,BCN-SITE-50,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+a3cf1186b7ae42c0b1ed23cc02002812,SITE-51,cmdb_ci_site,BARCELONA,BCN-SITE-51,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+f6cac6efbb864f9abc8733e661bf6ee2,SITE-52,cmdb_ci_site,BARCELONA,BCN-SITE-52,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+ecf43b6a820345569b1e31831b3b4c8c,SITE-53,cmdb_ci_site,BARCELONA,BCN-SITE-53,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+e4bd316310934dc888d2052850cb4b62,SITE-54,cmdb_ci_site,BARCELONA,BCN-SITE-54,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+e119d75c6bb0422687f11ecdb5ba963e,SITE-55,cmdb_ci_site,BARCELONA,BCN-SITE-55,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7c1c272794da4e5a86593450dc35622f,SITE-56,cmdb_ci_site,BARCELONA,BCN-SITE-56,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+0b3f4d747d644a2795cb4ce4388a96ab,SITE-57,cmdb_ci_site,BARCELONA,BCN-SITE-57,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+5df7ae169afd4d35bc316965a710a840,SITE-58,cmdb_ci_site,BARCELONA,BCN-SITE-58,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9efe33e26a464a6d8bd5340b21ac7b8f,SITE-59,cmdb_ci_site,BARCELONA,BCN-SITE-59,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+49dce9176b8149c5a66e1dc31d88612a,SITE-60,cmdb_ci_site,BARCELONA,BCN-SITE-60,Operational,Site,Barcelona,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d5d2aa2d362049bb95adf0d36dddaa75,CELL-0101,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0101,Operational,Radio Cell,SITE-01,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9a8d5bb6b1c54bc490e0ef6dce68873f,CELL-0102,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0102,Operational,Radio Cell,SITE-01,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8ca49132ef2e4e5b9b1882890b3e1ffe,CELL-0103,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0103,Operational,Radio Cell,SITE-01,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+3ae99ac541ab4493ba39818f75e69f83,CELL-0201,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0201,Operational,Radio Cell,SITE-02,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+390ea0e7384a4ba6bdc4ac867503dc05,CELL-0202,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0202,Operational,Radio Cell,SITE-02,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+3f93ac23687d40c490605921592e4ca0,CELL-0203,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0203,Operational,Radio Cell,SITE-02,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+f8cbace81aed47508b3f750ff424f027,CELL-0301,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0301,Operational,Radio Cell,SITE-03,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9447b4d61cf4494c8f1ef8ac0500d2a2,CELL-0302,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0302,Operational,Radio Cell,SITE-03,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+879f36404dbd48babbbeaee7faf3c85b,CELL-0303,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0303,Operational,Radio Cell,SITE-03,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+6a3dfa4ef1ad41efadb3cbb2a642fe98,CELL-0401,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0401,Operational,Radio Cell,SITE-04,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+75d3d424801049598c1cc91dc3e02939,CELL-0402,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0402,Operational,Radio Cell,SITE-04,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+e85df4bd19314d2683c6038bdc075826,CELL-0403,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0403,Operational,Radio Cell,SITE-04,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+f141114f0c6c4b28bd980d3c6f274c4d,CELL-0501,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0501,Operational,Radio Cell,SITE-05,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+aa9c5b2c0ebc4d90adf4f5db2da0bb3b,CELL-0502,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0502,Operational,Radio Cell,SITE-05,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+36d32e87e08a4efc95132883d01a6624,CELL-0503,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0503,Operational,Radio Cell,SITE-05,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+caea5ebbd4924b9fab78a865a8057191,CELL-0601,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0601,Operational,Radio Cell,SITE-06,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+bf3d0aadf72841d99705d61c41db37ad,CELL-0602,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0602,Operational,Radio Cell,SITE-06,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+f86f3e4da31f4d94b518e7e8e3817aef,CELL-0603,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0603,Operational,Radio Cell,SITE-06,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+bc742693d61841e180d3f2f6311f56ac,CELL-0701,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0701,Operational,Radio Cell,SITE-07,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+520d3736bacd4ad98090607c60ade46f,CELL-0702,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0702,Operational,Radio Cell,SITE-07,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+ab8fa59796674ea19b1b75de77ca63a4,CELL-0703,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0703,Operational,Radio Cell,SITE-07,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+bca8b99c45754c879e04edc2dbe25045,CELL-0801,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0801,Operational,Radio Cell,SITE-08,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+2658aed1b59e4e88aee1748de8dc4d89,CELL-0802,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0802,Operational,Radio Cell,SITE-08,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c4e425f29411461695d9e4ad3bf040a3,CELL-0803,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0803,Operational,Radio Cell,SITE-08,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c590940973a54a16b2ced07cb318579f,CELL-0901,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0901,Operational,Radio Cell,SITE-09,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+56e774bdd4ce49cb975386dd6eed7fe8,CELL-0902,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0902,Operational,Radio Cell,SITE-09,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+390d1c94abac47ee8234ae9a475a5dd0,CELL-0903,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-0903,Operational,Radio Cell,SITE-09,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+6806fd12e22346919bf8907a039774e9,CELL-1001,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1001,Operational,Radio Cell,SITE-10,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+961fd3e5e41b4eca978f2b934f6b6373,CELL-1002,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1002,Operational,Radio Cell,SITE-10,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+10e6fe80ab294b609ed8b1db9b2511af,CELL-1003,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1003,Operational,Radio Cell,SITE-10,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+f8918456315e496c8a781a93c10149bb,CELL-1101,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1101,Operational,Radio Cell,SITE-11,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+f19150aee10e43e3907d0db5b7ffd3d2,CELL-1102,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1102,Operational,Radio Cell,SITE-11,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+2a01c2a919a14f62beedf01c405ff8d4,CELL-1103,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1103,Operational,Radio Cell,SITE-11,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+88391edbcee446f690f740966f10e283,CELL-1201,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1201,Operational,Radio Cell,SITE-12,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+388b034688dd482fa6c2c224172d02be,CELL-1202,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1202,Operational,Radio Cell,SITE-12,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+dcecde5c2a3b466aafd6a8c4afa07171,CELL-1203,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1203,Operational,Radio Cell,SITE-12,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+1030d819e50b43198b6af7cef7d66879,CELL-1301,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1301,Operational,Radio Cell,SITE-13,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+fa84b6c1e6254f968b614738dddbe459,CELL-1302,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1302,Operational,Radio Cell,SITE-13,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c51cdf7e29714591aa614a3e8ff2d143,CELL-1303,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1303,Operational,Radio Cell,SITE-13,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+0433111a651e40de910aee97648df8cf,CELL-1401,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1401,Operational,Radio Cell,SITE-14,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+3c8038bef3784188a6836fa7b607de73,CELL-1402,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1402,Operational,Radio Cell,SITE-14,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+ceb24c6d875845f8908448ffcb392ec7,CELL-1403,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1403,Operational,Radio Cell,SITE-14,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+3c764afe362c404bba45eca4bf46b7ef,CELL-1501,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1501,Operational,Radio Cell,SITE-15,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+07c9b4b2e7e74b558cad50d695c8ccf2,CELL-1502,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1502,Operational,Radio Cell,SITE-15,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+119f7989ead54aaaa676c9cad240ffef,CELL-1503,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1503,Operational,Radio Cell,SITE-15,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+843d0e9043174c44b1a67b084ee485c1,CELL-1601,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1601,Operational,Radio Cell,SITE-16,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+184967781a314b2494efa64c904f0138,CELL-1602,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1602,Operational,Radio Cell,SITE-16,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b40d8ae2a5e54f4ba5dfbd4d1dae56e9,CELL-1603,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1603,Operational,Radio Cell,SITE-16,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7c18359b04a24a9985ad420ffdd8a93f,CELL-1701,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1701,Operational,Radio Cell,SITE-17,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+875ab6430f304b5db330fb928f896493,CELL-1702,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1702,Operational,Radio Cell,SITE-17,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+931ae6703902442ea9ffc53c8d6064be,CELL-1703,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1703,Operational,Radio Cell,SITE-17,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+5b292bd62b684209aff54e5085678cc1,CELL-1801,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1801,Operational,Radio Cell,SITE-18,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+2a3cdc573f4247c7848c32e957f8d7fc,CELL-1802,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1802,Operational,Radio Cell,SITE-18,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+164374fe893748f2a23d539bf2ac0dd1,CELL-1803,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1803,Operational,Radio Cell,SITE-18,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+56cd514a1cd1416dbd2fb34f00bf7995,CELL-1901,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1901,Operational,Radio Cell,SITE-19,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8de4e780d32b405c9d00e80ab15c6d59,CELL-1902,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1902,Operational,Radio Cell,SITE-19,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8556c85e91304924a6ca17278be3dd33,CELL-1903,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-1903,Operational,Radio Cell,SITE-19,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+95996a8041784c52a845d329541b5533,CELL-2001,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2001,Operational,Radio Cell,SITE-20,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+162bab7f7d6843509788f38c81d897f0,CELL-2002,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2002,Operational,Radio Cell,SITE-20,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+e3b797778176438f998735f0aa0015e5,CELL-2003,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2003,Operational,Radio Cell,SITE-20,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9ac251d3fecb443ab8abcda45efb45ef,CELL-2101,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2101,Operational,Radio Cell,SITE-21,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b5af6f8f4f544ad6a6932e5b1c577727,CELL-2102,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2102,Operational,Radio Cell,SITE-21,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+ef769537b06e44d39a9935ea9073b13e,CELL-2103,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2103,Operational,Radio Cell,SITE-21,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+105c7bd11f714ec09db78de40319e1df,CELL-2201,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2201,Operational,Radio Cell,SITE-22,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7be34c8716674fb982f0ca1ea2ba7c3e,CELL-2202,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2202,Operational,Radio Cell,SITE-22,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+5a861f855b4b4940b4f272e7d2441284,CELL-2203,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2203,Operational,Radio Cell,SITE-22,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+3d0ee4d4da214079b984df373706cfcf,CELL-2301,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2301,Operational,Radio Cell,SITE-23,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c32e3ab394a0409294653bb4bcd739c4,CELL-2302,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2302,Operational,Radio Cell,SITE-23,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+6dfd6990966045f89fe4b0f695b73576,CELL-2303,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2303,Operational,Radio Cell,SITE-23,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+2e60b5b4face41c980104c0f8d0f9b68,CELL-2401,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2401,Operational,Radio Cell,SITE-24,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7bb7e8e0fd0d431681040c2d6593c18c,CELL-2402,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2402,Operational,Radio Cell,SITE-24,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+fdddb50fa7c240b7b829b1c8cd37d422,CELL-2403,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2403,Operational,Radio Cell,SITE-24,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+afddb6b18dff4ca99a9f8ba750b06e14,CELL-2501,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2501,Operational,Radio Cell,SITE-25,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+313f359983a545af82b3cc030572e922,CELL-2502,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2502,Operational,Radio Cell,SITE-25,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+983f5ba880594b689e1c3a7429f24a1c,CELL-2503,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2503,Operational,Radio Cell,SITE-25,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+f64a473e1946478792514ffa3fb6fc92,CELL-2601,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2601,Operational,Radio Cell,SITE-26,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+53bbc807a9f748d49800293717f41d44,CELL-2602,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2602,Operational,Radio Cell,SITE-26,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+5b65a6936c7c48eb84202664c3cc36ae,CELL-2603,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2603,Operational,Radio Cell,SITE-26,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+eb45da14a0fa4037b901d0b2c5b3bc73,CELL-2701,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2701,Operational,Radio Cell,SITE-27,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d1a54db2019b4b529269e0c853c58a6e,CELL-2702,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2702,Operational,Radio Cell,SITE-27,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+fe2f5b536f6145a5aa55bf88b5470f0b,CELL-2703,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2703,Operational,Radio Cell,SITE-27,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+273432345da242c1a38c150070e654a1,CELL-2801,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2801,Operational,Radio Cell,SITE-28,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+33450cb698414d39a233100f14e39dff,CELL-2802,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2802,Operational,Radio Cell,SITE-28,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+ee2c8599a3de4a18809a22b6a39be87a,CELL-2803,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2803,Operational,Radio Cell,SITE-28,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+779553c0bdab4c69a4bc89954bb15fb9,CELL-2901,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2901,Operational,Radio Cell,SITE-29,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+56f0741b6fdd4452b5880ad2a089c307,CELL-2902,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2902,Operational,Radio Cell,SITE-29,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+572ec42365e84d499fc8b2f9cd684b63,CELL-2903,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-2903,Operational,Radio Cell,SITE-29,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+a97f49f8b17c40d3b6a1279b84a6b339,CELL-3001,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3001,Operational,Radio Cell,SITE-30,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8b3a79e7901d438cbe8676007f766782,CELL-3002,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3002,Operational,Radio Cell,SITE-30,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7455d827feed4e1c9ba3bdee3a284e65,CELL-3003,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3003,Operational,Radio Cell,SITE-30,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7d2e7aea4cfc4ccd8a7348bdd6510534,CELL-3101,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3101,Operational,Radio Cell,SITE-31,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+da8941045ca0474593ab1df28ea328ce,CELL-3102,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3102,Operational,Radio Cell,SITE-31,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+13ee9636983d4303b9d428b7714ccdfa,CELL-3103,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3103,Operational,Radio Cell,SITE-31,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+0ec757ef825f4e88b80acff983df92f2,CELL-3201,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3201,Operational,Radio Cell,SITE-32,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+3c464fa6a5a44d72992f27dc1d5fa212,CELL-3202,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3202,Operational,Radio Cell,SITE-32,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+a24e5add26b7418aa6e0b5d1aa9b3017,CELL-3203,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3203,Operational,Radio Cell,SITE-32,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9633f585934c4b7c8765043d4078f1f1,CELL-3301,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3301,Operational,Radio Cell,SITE-33,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+ad616ba447e7402e855159f702da14e6,CELL-3302,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3302,Operational,Radio Cell,SITE-33,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8217aa88203e45f598d60c650409b0c2,CELL-3303,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3303,Operational,Radio Cell,SITE-33,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+22167d0041d6466aba0c8551b735995d,CELL-3401,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3401,Operational,Radio Cell,SITE-34,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+e22748fd09a0475a8ee387b9a85dd02c,CELL-3402,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3402,Operational,Radio Cell,SITE-34,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+2ba7c30bdc394ca3b639d0a4e0e27583,CELL-3403,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3403,Operational,Radio Cell,SITE-34,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7acc3b8983624e81861008ee29746acd,CELL-3501,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3501,Operational,Radio Cell,SITE-35,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d7d7b847a94b48a0915d02fbcb63fbd9,CELL-3502,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3502,Operational,Radio Cell,SITE-35,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+21d6b65e74c846e393b4e76e1c909eae,CELL-3503,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3503,Operational,Radio Cell,SITE-35,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+12ed9ae90a75430a971f478b95939b8c,CELL-3601,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3601,Operational,Radio Cell,SITE-36,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+4ad0dbeddcdb4e8a88aba0bf6790a9e1,CELL-3602,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3602,Operational,Radio Cell,SITE-36,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+1c37350da3f541e4a97d9963b8308f73,CELL-3603,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3603,Operational,Radio Cell,SITE-36,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9c415f0bc04f4d609378d1946421ef21,CELL-3701,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3701,Operational,Radio Cell,SITE-37,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+4a272553d17740b884f36f8e415410e3,CELL-3702,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3702,Operational,Radio Cell,SITE-37,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9e272b396ebf485f8da388b1d26dc11b,CELL-3703,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3703,Operational,Radio Cell,SITE-37,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+cae669dd2ad444e0bb6a7ca5ec8c576d,CELL-3801,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3801,Operational,Radio Cell,SITE-38,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+e50b5ac52e7e436db2c89dd1a9dea7ec,CELL-3802,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3802,Operational,Radio Cell,SITE-38,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+4cf6f6c2ab164f2788e268f3e035d5b8,CELL-3803,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3803,Operational,Radio Cell,SITE-38,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+0d9d70b3cd184b92a7774b7b46d0206c,CELL-3901,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3901,Operational,Radio Cell,SITE-39,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9013f52e32454e49bf0c2e9fff10bd61,CELL-3902,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3902,Operational,Radio Cell,SITE-39,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+886e3b9cfe9b4b1aad878173b44b6d22,CELL-3903,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-3903,Operational,Radio Cell,SITE-39,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7d25c761348b426ba2148262c455edb6,CELL-4001,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4001,Operational,Radio Cell,SITE-40,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+eab97bf8ef6e48308da3d2b61c9612e3,CELL-4002,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4002,Operational,Radio Cell,SITE-40,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9ab3fdedddb543efa0a3208410f7551a,CELL-4003,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4003,Operational,Radio Cell,SITE-40,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+59462946cea4453284168187e0497836,CELL-4101,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4101,Operational,Radio Cell,SITE-41,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+53305ee4dfc24a99aae4a175c81e9331,CELL-4102,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4102,Operational,Radio Cell,SITE-41,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+100042607a7b46758c7ad5bca00e4f2e,CELL-4103,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4103,Operational,Radio Cell,SITE-41,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+397ac037d12b4ee79af90efd95e0b864,CELL-4201,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4201,Operational,Radio Cell,SITE-42,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+93f329805f324d0f8cc809008fdfdbe4,CELL-4202,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4202,Operational,Radio Cell,SITE-42,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+2613b51f31134bab80f8b58fa2e6229f,CELL-4203,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4203,Operational,Radio Cell,SITE-42,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+e65dbb1efbc04be4bd9e3a5770738aa2,CELL-4301,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4301,Operational,Radio Cell,SITE-43,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+01ec9d4113ce4ab6a3ac9dc77972d7ce,CELL-4302,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4302,Operational,Radio Cell,SITE-43,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+690314e533ab4a268b31b99edb995c62,CELL-4303,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4303,Operational,Radio Cell,SITE-43,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+bfccec0b12d24ac784b1acf4dcfba140,CELL-4401,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4401,Operational,Radio Cell,SITE-44,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+33530df7ebf942db8a9bedd2ce45d32e,CELL-4402,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4402,Operational,Radio Cell,SITE-44,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c24d0d9d7fb642589fc78962b78bba61,CELL-4403,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4403,Operational,Radio Cell,SITE-44,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9587a6be7ea74f0aadb89ce467b2bb2d,CELL-4501,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4501,Operational,Radio Cell,SITE-45,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+f0fbad1d189347c29d37541c9d879e67,CELL-4502,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4502,Operational,Radio Cell,SITE-45,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+fda933fabbcc440db0687dfcccd997e4,CELL-4503,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4503,Operational,Radio Cell,SITE-45,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+88a092fba54244e18349affb1a321f0e,CELL-4601,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4601,Operational,Radio Cell,SITE-46,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8b328cef46f14e74ac94b76a0befa366,CELL-4602,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4602,Operational,Radio Cell,SITE-46,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+779bf5582e7a4742ba651af4b76978d7,CELL-4603,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4603,Operational,Radio Cell,SITE-46,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+916451ecd25e47aeb5e6850a867bcb1a,CELL-4701,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4701,Operational,Radio Cell,SITE-47,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+294ed9fcd3cd430c9784b1cac5003232,CELL-4702,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4702,Operational,Radio Cell,SITE-47,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+65ae33daf2b34899aed1758ec13b0693,CELL-4703,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4703,Operational,Radio Cell,SITE-47,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+1fdc72f5554348f2b32fb71f7253bbff,CELL-4801,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4801,Operational,Radio Cell,SITE-48,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b1bf4dd6e9f44688a76819ceacd8faca,CELL-4802,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4802,Operational,Radio Cell,SITE-48,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b6a470b1b27d41d8ae9667ee6bdf75f3,CELL-4803,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4803,Operational,Radio Cell,SITE-48,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+30e97a3602f44867b46c27420b6e5109,CELL-4901,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4901,Operational,Radio Cell,SITE-49,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+77a6f9853b7b43cf9ed40d2bd4ed4068,CELL-4902,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4902,Operational,Radio Cell,SITE-49,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+3e8565131c214fb1b2639ae7c65f7b17,CELL-4903,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-4903,Operational,Radio Cell,SITE-49,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b4f53f861fc44ece8e411f793ce4ecd3,CELL-5001,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5001,Operational,Radio Cell,SITE-50,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+6953df4111464ef687dacb7668bae590,CELL-5002,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5002,Operational,Radio Cell,SITE-50,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+a68f8dc479054e4ab72faf92d3cedc61,CELL-5003,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5003,Operational,Radio Cell,SITE-50,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+4a9d0c6e26d744159b93dd2a04c0da8c,CELL-5101,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5101,Operational,Radio Cell,SITE-51,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b0a014087ee94e2a9645e43a7faee1f6,CELL-5102,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5102,Operational,Radio Cell,SITE-51,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+37b78333e37f493d8eb7d3db86f902f9,CELL-5103,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5103,Operational,Radio Cell,SITE-51,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+2187043bebfd47fdb7ce4e72cbf76e70,CELL-5201,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5201,Operational,Radio Cell,SITE-52,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7c62e3f4f9f74a66a42b388f885b65ef,CELL-5202,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5202,Operational,Radio Cell,SITE-52,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d55b3b18938d40d88f74d00bf3dd30c2,CELL-5203,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5203,Operational,Radio Cell,SITE-52,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+03f843f4f72e48e29f7df95333f9d90e,CELL-5301,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5301,Operational,Radio Cell,SITE-53,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9fc05f8f9fb04d55bf743312dde22f59,CELL-5302,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5302,Operational,Radio Cell,SITE-53,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+25d7a89eacdb422fb3892c35ff0f4f39,CELL-5303,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5303,Operational,Radio Cell,SITE-53,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8ead6186a2114d069fc8b4cf3662f920,CELL-5401,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5401,Operational,Radio Cell,SITE-54,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+6c95eb44c2a44a74bbc44fe95c405322,CELL-5402,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5402,Operational,Radio Cell,SITE-54,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8ed49892165f4f789700766341aaf090,CELL-5403,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5403,Operational,Radio Cell,SITE-54,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+3157e6ab8c474e1caa24e9c1c9a2954a,CELL-5501,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5501,Operational,Radio Cell,SITE-55,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+291e1f5f1e3c4d22b19a04e73336b39b,CELL-5502,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5502,Operational,Radio Cell,SITE-55,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+838a5ac1d74644789e34bf4d523403b4,CELL-5503,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5503,Operational,Radio Cell,SITE-55,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+87fbb9d7ee4d4f6ba7cd90791d91042e,CELL-5601,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5601,Operational,Radio Cell,SITE-56,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c3ada3cf039b47fc84499ef45ca847f7,CELL-5602,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5602,Operational,Radio Cell,SITE-56,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7ee230874ffb4623aee9388b684f4f48,CELL-5603,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5603,Operational,Radio Cell,SITE-56,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+00c92fc3f77f41b1baa2163099fedd40,CELL-5701,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5701,Operational,Radio Cell,SITE-57,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+bd1b0248c9fb4b1687479acfe4c839d1,CELL-5702,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5702,Operational,Radio Cell,SITE-57,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+de03f049de1c46adad813eac2addc0ec,CELL-5703,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5703,Operational,Radio Cell,SITE-57,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+3f9bd98d1f0d4d5592d247240a377494,CELL-5801,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5801,Operational,Radio Cell,SITE-58,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+20ee9900ce4543bbafb64fdefb1f7519,CELL-5802,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5802,Operational,Radio Cell,SITE-58,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b8c1a1f5240245f3bbfdbeca882d9715,CELL-5803,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5803,Operational,Radio Cell,SITE-58,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+bb59c912fa0848ef98376b357ad2b0d6,CELL-5901,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5901,Operational,Radio Cell,SITE-59,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8f495987dfa0468ca1fa6257ceb16210,CELL-5902,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5902,Operational,Radio Cell,SITE-59,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+e10d4e1274fb48b39c233836402a982e,CELL-5903,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-5903,Operational,Radio Cell,SITE-59,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+001b67beff994d759a00902d321c11e2,CELL-6001,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-6001,Operational,Radio Cell,SITE-60,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8acb3e108b5f490396ae7b06f6ba8c9e,CELL-6002,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-6002,Operational,Radio Cell,SITE-60,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+13c303d1c8fe4f11880793311329d182,CELL-6003,cmdb_ci_radio_cell,BARCELONA,BCN-CELL-6003,Operational,Radio Cell,SITE-60,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7152daf626cd430b8095c4b18c88b35b,SCELL-001,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-001,Operational,Small Cell,SMALL-01,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c6b2244786044597b502837111339de3,SCELL-002,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-002,Operational,Small Cell,SMALL-01,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+6f9cb950eaec4ee58e0a6ee25c584a99,SCELL-003,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-003,Operational,Small Cell,SMALL-01,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7a69b4d10c984a8ba02da00caa20e6ee,SCELL-004,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-004,Operational,Small Cell,SMALL-01,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+72c600d3c6ec423f886e212d1acb9d69,SCELL-005,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-005,Operational,Small Cell,SMALL-01,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+17723ada98a74e158698b82766fda8e2,SCELL-006,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-006,Operational,Small Cell,SMALL-01,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+a26a1eadf5e24267a71797f6087c96f7,SCELL-007,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-007,Operational,Small Cell,SMALL-01,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+a516e6e3c7434f1fab61ec20d8985f03,SCELL-008,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-008,Operational,Small Cell,SMALL-01,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8d2d606254a540ef84d1c2c9b45e6def,SCELL-009,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-009,Operational,Small Cell,SMALL-01,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+38bfa19a6c8d4994af2da40687a68598,SCELL-010,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-010,Operational,Small Cell,SMALL-01,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+887202183f774e089eb1ee80f5061413,SCELL-011,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-011,Operational,Small Cell,SMALL-02,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c60faef0369446eead3f01e002863a70,SCELL-012,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-012,Operational,Small Cell,SMALL-02,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+6a7263d9ebd24549b64a249bfbb152d8,SCELL-013,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-013,Operational,Small Cell,SMALL-02,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+722fbef01add4af6ab2a55ae8a7f54a8,SCELL-014,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-014,Operational,Small Cell,SMALL-02,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+30316777770247e4918d0bba9f0e6d53,SCELL-015,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-015,Operational,Small Cell,SMALL-02,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+77b0707abc484b7cbdaeef23e2379804,SCELL-016,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-016,Operational,Small Cell,SMALL-02,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+eb3d5780916a44a78af1451b0ade02de,SCELL-017,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-017,Operational,Small Cell,SMALL-02,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c37323fdb3ff4cb7b90e1761503a0715,SCELL-018,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-018,Operational,Small Cell,SMALL-02,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+0aba19cea3d143ad9a63a047901a6c57,SCELL-019,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-019,Operational,Small Cell,SMALL-02,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+573579f3459649ab96f3fe3ff397be1d,SCELL-020,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-020,Operational,Small Cell,SMALL-02,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+07e932cc6dbf489984cefffcf46778ed,SCELL-021,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-021,Operational,Small Cell,SMALL-03,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9fefe46980b6468a9a2492beaebb0ff5,SCELL-022,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-022,Operational,Small Cell,SMALL-03,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+516c7556ff4c4351a5938c95d383aea2,SCELL-023,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-023,Operational,Small Cell,SMALL-03,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+decb163a3bc74a45b6cf64f99d2745df,SCELL-024,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-024,Operational,Small Cell,SMALL-03,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7432aa30e2cf49169512dc8cb29447b9,SCELL-025,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-025,Operational,Small Cell,SMALL-03,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+bea0783ef5c24728bdde6b0cd5f89a07,SCELL-026,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-026,Operational,Small Cell,SMALL-03,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+2d87b2c8966d4499bfbdf694fba5055f,SCELL-027,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-027,Operational,Small Cell,SMALL-03,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+befa11104e7e4f19b492c8965ec36e13,SCELL-028,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-028,Operational,Small Cell,SMALL-03,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+490479859e0846e3a8319fd5093a2b85,SCELL-029,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-029,Operational,Small Cell,SMALL-03,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9d63519a54ec4d9392f45646239e7348,SCELL-030,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-030,Operational,Small Cell,SMALL-03,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+1a4d9f5eebb2481397b67574a559f1e3,SCELL-031,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-031,Operational,Small Cell,SMALL-04,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+ca778b10d1e64d82b90d9f3512b79f96,SCELL-032,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-032,Operational,Small Cell,SMALL-04,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c8d678d9a29f4c869136e6264aa96193,SCELL-033,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-033,Operational,Small Cell,SMALL-04,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+15c7bac628d8467da6d86ba52b25a440,SCELL-034,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-034,Operational,Small Cell,SMALL-04,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+4f798f2f718040f2b54e182dd3c3b478,SCELL-035,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-035,Operational,Small Cell,SMALL-04,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+ce01982d4cdf4903a12be63c678e95e6,SCELL-036,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-036,Operational,Small Cell,SMALL-04,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b1161437338e4d3fa327d44db8d10f47,SCELL-037,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-037,Operational,Small Cell,SMALL-04,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+2763cdbb860d49f4890d35dec144c3e3,SCELL-038,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-038,Operational,Small Cell,SMALL-04,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+443d055e965341f8bbc134c633f6c534,SCELL-039,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-039,Operational,Small Cell,SMALL-04,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d7a6e212bdc44fafbddff6fcb718d4f2,SCELL-040,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-040,Operational,Small Cell,SMALL-04,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+fd530e8f83c647e3bb0a4b052ae982c2,SCELL-041,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-041,Operational,Small Cell,SMALL-05,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c584314184bc436ea6ee8ee51955e1ac,SCELL-042,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-042,Operational,Small Cell,SMALL-05,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+bc9a027b339846f78573459b1941894d,SCELL-043,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-043,Operational,Small Cell,SMALL-05,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+38c196b59de04ac59c72179b8c852e52,SCELL-044,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-044,Operational,Small Cell,SMALL-05,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+e00948b948a24898a918a7c0415902f0,SCELL-045,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-045,Operational,Small Cell,SMALL-05,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b477dbd4392243d28e72bd7cb5ec0812,SCELL-046,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-046,Operational,Small Cell,SMALL-05,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+4deb0a50a5f248a8bb0e9cff011af358,SCELL-047,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-047,Operational,Small Cell,SMALL-05,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+82cc0113375a407bb9877989259ebbc3,SCELL-048,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-048,Operational,Small Cell,SMALL-05,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+cabb6d24a5d145bf8e2a71b724b190e1,SCELL-049,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-049,Operational,Small Cell,SMALL-05,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+0bc5e2fb3f5d4f97b4c93cd16900bc08,SCELL-050,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-050,Operational,Small Cell,SMALL-05,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+4e0bfccd2f004f91a2f4eacfe30884c2,SCELL-051,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-051,Operational,Small Cell,SMALL-06,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+74038ba55a7d4482a16ee6294a397457,SCELL-052,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-052,Operational,Small Cell,SMALL-06,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+3c7562afd73149a8b686545bd0b94b81,SCELL-053,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-053,Operational,Small Cell,SMALL-06,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+a12d5c8b53ee410a9a8d1d7b3b519ea8,SCELL-054,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-054,Operational,Small Cell,SMALL-06,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8321eeaae77440e8a2bf445f6945fcb8,SCELL-055,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-055,Operational,Small Cell,SMALL-06,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+5f3047256ffb4c6696c5713d6a882868,SCELL-056,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-056,Operational,Small Cell,SMALL-06,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+25a4bb564bfe4672ab7e104e5294f108,SCELL-057,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-057,Operational,Small Cell,SMALL-06,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+495d2a392aeb47e8b863266ce5bfb2b3,SCELL-058,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-058,Operational,Small Cell,SMALL-06,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+573c46d840574c16bbb85ddd89ba514e,SCELL-059,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-059,Operational,Small Cell,SMALL-06,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b00091dfa98a4efd83ce225efc92d61b,SCELL-060,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-060,Operational,Small Cell,SMALL-06,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c06f169b02ef4d12901b02197df20ee4,SCELL-061,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-061,Operational,Small Cell,SMALL-07,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+1da8695f4a994d2185d1cd520faab654,SCELL-062,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-062,Operational,Small Cell,SMALL-07,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+94bfb22f34ae4d028f48efc2d14f0b6d,SCELL-063,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-063,Operational,Small Cell,SMALL-07,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+ce19209674124decaefbb59c0e2ecaa6,SCELL-064,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-064,Operational,Small Cell,SMALL-07,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b044c78fac6e4154afd6b90c4ebc2e73,SCELL-065,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-065,Operational,Small Cell,SMALL-07,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8e99f61d06d04d4593ddb81a316e0fde,SCELL-066,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-066,Operational,Small Cell,SMALL-07,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7dc186d9c2ef4f20b99de628d2aef1b6,SCELL-067,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-067,Operational,Small Cell,SMALL-07,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+5d918ab472544394a552a382cee906d5,SCELL-068,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-068,Operational,Small Cell,SMALL-07,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+8d093124263545648d1f9ed4c52bb5f1,SCELL-069,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-069,Operational,Small Cell,SMALL-07,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+2b407b69c71a4ae6b1003e607efa602e,SCELL-070,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-070,Operational,Small Cell,SMALL-07,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+3e93382434524fcd92d30ba097dab548,SCELL-071,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-071,Operational,Small Cell,SMALL-08,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7576827a12664f66a7aa97f62954cbba,SCELL-072,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-072,Operational,Small Cell,SMALL-08,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d0848eeb84354a5dab66ed1563b2a860,SCELL-073,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-073,Operational,Small Cell,SMALL-08,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b29446f89519409a9a85fe906f4e3dfd,SCELL-074,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-074,Operational,Small Cell,SMALL-08,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+e7bf50d7f0074e11af35a2d2207aae63,SCELL-075,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-075,Operational,Small Cell,SMALL-08,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+0818a9a54603482284400f50a0256aef,SCELL-076,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-076,Operational,Small Cell,SMALL-08,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b937f67a1ac34065bcc0c71a7ff0de32,SCELL-077,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-077,Operational,Small Cell,SMALL-08,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b10e20969a514a5d91854aaf7e5f9914,SCELL-078,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-078,Operational,Small Cell,SMALL-08,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d8e348b0be4f4f9ab28e754e065e3a4f,SCELL-079,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-079,Operational,Small Cell,SMALL-08,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+7c0def873b0a474caf39194b3c90dd3e,SCELL-080,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-080,Operational,Small Cell,SMALL-08,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+f70a3d3151444d3c9f147f08e97c3c5f,SCELL-081,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-081,Operational,Small Cell,SMALL-09,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+3df1a8fbf8874c93850ebe0558ed3ed1,SCELL-082,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-082,Operational,Small Cell,SMALL-09,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+1519f739c1a249fb805a6d17e03c6e1d,SCELL-083,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-083,Operational,Small Cell,SMALL-09,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b1e7bbab0b7b4354a172dcb1a9049fc1,SCELL-084,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-084,Operational,Small Cell,SMALL-09,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+05d249e79b4d4ad09a8a0f7a1b1fd34b,SCELL-085,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-085,Operational,Small Cell,SMALL-09,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+ae3ccdae252a40dfbf892d933f2d37fb,SCELL-086,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-086,Operational,Small Cell,SMALL-09,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d9d49232ee624fa2b559f82356f2293e,SCELL-087,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-087,Operational,Small Cell,SMALL-09,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+72388062b3b3478dbfdbd61e8fe42077,SCELL-088,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-088,Operational,Small Cell,SMALL-09,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c4320c960cf94799ba19a1910917fab6,SCELL-089,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-089,Operational,Small Cell,SMALL-09,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+dbd957daea9945b6a042425dbe037d10,SCELL-090,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-090,Operational,Small Cell,SMALL-09,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+205a870a91644c7d9b9ec6cf422164b1,SCELL-091,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-091,Operational,Small Cell,SMALL-10,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+24773d8196bd43ed95146bfe082c5e43,SCELL-092,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-092,Operational,Small Cell,SMALL-10,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+ad51533e34fd4134b53b21ab483bc2b2,SCELL-093,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-093,Operational,Small Cell,SMALL-10,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+c97c9c3987ac4d77ab7e7e63443a0b38,SCELL-094,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-094,Operational,Small Cell,SMALL-10,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+e46818270fcd43e395c5ac029ac7d886,SCELL-095,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-095,Operational,Small Cell,SMALL-10,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+da62a81ed16c4a3abcdc5d6e91e342ab,SCELL-096,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-096,Operational,Small Cell,SMALL-10,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+093e02280acb47c5ad1ddebcd6c4acd4,SCELL-097,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-097,Operational,Small Cell,SMALL-10,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9025eca27ee346bd94ef737636b72291,SCELL-098,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-098,Operational,Small Cell,SMALL-10,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+842c80ce9f9743b084f6cda85897531b,SCELL-099,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-099,Operational,Small Cell,SMALL-10,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+b85eccd82c784f9eba54d13db1efb150,SCELL-100,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-100,Operational,Small Cell,SMALL-10,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+0538af26ef7844faa8efe1ee6c3499b3,SCELL-101,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-101,Operational,Small Cell,SMALL-11,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+94d23bf414b5403790070520f7b638e0,SCELL-102,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-102,Operational,Small Cell,SMALL-11,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+eb382e66f8ec432f8487d94014f89fe9,SCELL-103,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-103,Operational,Small Cell,SMALL-11,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+88686ad2a7ce4804b381f01a6aaf2a19,SCELL-104,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-104,Operational,Small Cell,SMALL-11,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+44d6e5427f574ae1871112cf74e8ff23,SCELL-105,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-105,Operational,Small Cell,SMALL-11,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+132c31abe983462db8487f977cc97da0,SCELL-106,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-106,Operational,Small Cell,SMALL-11,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d9abaaf5de57492fa767d708beaf9e0e,SCELL-107,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-107,Operational,Small Cell,SMALL-11,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+33a2d387792140a9adc32963d2279efd,SCELL-108,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-108,Operational,Small Cell,SMALL-11,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+552168f6c77e48d2bb4bf9b9e220e016,SCELL-109,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-109,Operational,Small Cell,SMALL-11,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+f18d1c86460f4ae8b49a582be67bb037,SCELL-110,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-110,Operational,Small Cell,SMALL-11,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+2ebfe903025e4740a00d9c520a4f658b,SCELL-111,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-111,Operational,Small Cell,SMALL-12,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+2640df0124494ba9a0e6cfa09bcc2157,SCELL-112,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-112,Operational,Small Cell,SMALL-12,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+a82f30ee6eed4e1c977f2944c9a253a7,SCELL-113,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-113,Operational,Small Cell,SMALL-12,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+9b87be9ae4e44f9a8d094986c0bb1f96,SCELL-114,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-114,Operational,Small Cell,SMALL-12,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+05458275fb804adb8e90c7afc63d9e1e,SCELL-115,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-115,Operational,Small Cell,SMALL-12,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+683ba263a24842699cd25393abb893c7,SCELL-116,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-116,Operational,Small Cell,SMALL-12,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+84a0f9fdbd6e4249b852e78954899063,SCELL-117,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-117,Operational,Small Cell,SMALL-12,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+d0eeae5ad8a144f9ad60b09004dee28c,SCELL-118,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-118,Operational,Small Cell,SMALL-12,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+764a1f31cb4b480bbb8a06b348db16e3,SCELL-119,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-119,Operational,Small Cell,SMALL-12,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+58523a962b974edd9a04aed643e80811,SCELL-120,cmdb_ci_small_cell,BARCELONA,BCN-SCELL-120,Operational,Small Cell,SMALL-12,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+fac12c5fa5974ad28dbc64557adc29d7,CORE-BCN-01,cmdb_ci_core_node,BARCELONA,CORE-BCN-01,Operational,Core Node,CORE,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+5192b4c209e940a78a1607c67dd5d1e7,CORE-BCN-02,cmdb_ci_core_node,BARCELONA,CORE-BCN-02,Operational,Core Node,CORE,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global
+acbc025654a44ffe962c78894913b276,CORE-BCN-03,cmdb_ci_core_node,BARCELONA,CORE-BCN-03,Operational,Core Node,CORE,2026-02-22 00:00:00,2026-02-28 23:45:00,system,system,global

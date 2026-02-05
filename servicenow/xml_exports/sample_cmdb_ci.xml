@@ -1,0 +1,12 @@
+<record_update>
+  <cmdb_ci>
+    <sys_id>abcdef0123456789abcdef0123456789</sys_id>
+    <name>BCN-SITE-10</name>
+    <sys_class_name>cmdb_ci_site</sys_class_name>
+    <operational_status>1</operational_status>
+    <install_status>1</install_status>
+    <sys_domain>global</sys_domain>
+    <sys_created_on>2026-02-22 00:00:00</sys_created_on>
+    <sys_updated_on>2026-02-28 23:45:00</sys_updated_on>
+  </cmdb_ci>
+</record_update>

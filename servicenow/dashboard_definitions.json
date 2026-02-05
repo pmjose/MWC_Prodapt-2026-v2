@@ -1,0 +1,24 @@
+{
+  "dashboards": [
+    {
+      "id": "DB-001",
+      "name": "Network Health Overview",
+      "widgets": [
+        "KPI heat map by neighborhood",
+        "Top 10 congested cells",
+        "SLA breaches (last 24h)",
+        "Incidents by priority"
+      ]
+    },
+    {
+      "id": "DB-002",
+      "name": "Assurance Prediction View",
+      "widgets": [
+        "Predicted faults by region",
+        "Active anomaly scores",
+        "Correlation of alarms to incidents",
+        "Remediation playbook usage"
+      ]
+    }
+  ]
+}

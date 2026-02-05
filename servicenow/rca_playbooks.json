@@ -1,0 +1,31 @@
+{
+  "playbooks": [
+    {
+      "id": "PB-001",
+      "name": "Backhaul latency remediation",
+      "steps": [
+        "Verify backhaul latency and packet loss for impacted sites",
+        "Reroute traffic to alternate path if available",
+        "Open transport vendor ticket if latency persists"
+      ]
+    },
+    {
+      "id": "PB-002",
+      "name": "Cell congestion mitigation",
+      "steps": [
+        "Confirm PRB_UTIL > 90% and RSRP/RSRQ degradation",
+        "Enable temporary capacity expansion or load balancing",
+        "Schedule permanent capacity upgrade if repeated"
+      ]
+    },
+    {
+      "id": "PB-003",
+      "name": "Core CPU saturation",
+      "steps": [
+        "Validate CPU/MEM utilization on core nodes",
+        "Restart or scale impacted services",
+        "Open core vendor ticket if thresholds remain breached"
+      ]
+    }
+  ]
+}
