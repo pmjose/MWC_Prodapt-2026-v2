@@ -360,7 +360,7 @@ def on_database_change():
 with st.sidebar:
     st.markdown(":material/schema: **ERD Viewer**")
     st.caption("Visualize database schema relationships")
-    st.space("small")
+    st.write("")
     
     database = st.selectbox('Database', databases, index=0 if databases else None, key="db_select", on_change=on_database_change)
     
@@ -368,7 +368,7 @@ with st.sidebar:
     default_idx = schemas.index("PUBLIC") if "PUBLIC" in schemas else (0 if schemas else None)
     schema = st.selectbox('Schema', schemas, index=default_idx, key="schema_select")
     
-    st.space("small")
+    st.write("")
     
     with st.expander(":material/palette: Display options", expanded=False):
         theme = st.selectbox('Theme', list(themes.keys()), index=0)
@@ -376,7 +376,7 @@ with st.sidebar:
         showTypes = st.toggle('Show data types', value=False)
         useUpperCase = st.toggle('Use uppercase', value=False)
     
-    st.space("small")
+    st.write("")
     
     if st.button(":material/refresh: Refresh cache", use_container_width=True):
         st.cache_data.clear()
@@ -439,7 +439,7 @@ else:
                 with st.container(border=True):
                     st.metric("Relationships", total_fks)
             
-            st.space("small")
+            st.write("")
             
             col1, col2 = st.columns(2)
             
@@ -459,7 +459,7 @@ else:
                     if total_columns > 0:
                         st.caption(f"Nullable ratio: {nullable_cols/total_columns*100:.1f}%")
             
-            st.space("small")
+            st.write("")
             
             with st.container(border=True):
                 st.markdown("**:material/table: Table details**")

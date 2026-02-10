@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.venv/
+
+# Keys and Secrets - NEVER COMMIT
+keys/
+*.p8
+*.pem
+*.key
+*_rsa_key*
+*.secret
+.env
+.env.*
+credentials.json
+secrets.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Snowflake
+.snowflake/
+snowflake_connection.json
+
+# Temporary files
+*.tmp
+*.temp
+.cache/

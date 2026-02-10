@@ -187,7 +187,7 @@ INSERT INTO TOPOLOGY (element_id, element_type, region, parent_id, service_id) V
   ('CORE-01', 'CORE_NODE', 'NORTH', NULL, 'SVC-VOICE'),
   ('CORE-02', 'CORE_NODE', 'SOUTH', NULL, 'SVC-DATA');
 
-INSERT INTO INCIDENTS (incident_id, opened_ts, region, service_id, status, summary) VALUES
+INSERT INTO INCIDENTS (number, opened_at, region, service_id, state, short_description) VALUES
   ('INC-1001', '2026-02-24 10:12:00', 'NORTH', 'SVC-VOICE', 'OPEN', 'Voice service degradation in North'),
   ('INC-1002', '2026-02-26 10:22:00', 'SOUTH', 'SVC-DATA', 'OPEN', 'Data throughput drop in South'),
   ('INC-1003', '2026-02-23 11:05:00', 'NORTH', 'SVC-DATA', 'OPEN', 'Intermittent data slowness in North'),

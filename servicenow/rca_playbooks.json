@@ -3,29 +3,82 @@
     {
       "id": "PB-001",
       "name": "Backhaul latency remediation",
+      "trigger_conditions": ["BACKHAUL_LATENCY > 50ms", "PACKET_LOSS > 1%"],
+      "severity": "MAJOR",
+      "estimated_resolution_minutes": 30,
       "steps": [
         "Verify backhaul latency and packet loss for impacted sites",
         "Reroute traffic to alternate path if available",
         "Open transport vendor ticket if latency persists"
-      ]
+      ],
+      "vendor_contact": {
+        "name": "Transport Operations Center",
+        "email": "transport-ops@telco.example.com",
+        "phone": "+34-900-TRANSPORT",
+        "escalation_group": "TRANSPORT_TEAM"
+      }
     },
     {
       "id": "PB-002",
       "name": "Cell congestion mitigation",
+      "trigger_conditions": ["PRB_UTIL > 90%", "RSRP < -110 dBm", "RSRQ < -15 dB"],
+      "severity": "MAJOR",
+      "estimated_resolution_minutes": 45,
       "steps": [
         "Confirm PRB_UTIL > 90% and RSRP/RSRQ degradation",
         "Enable temporary capacity expansion or load balancing",
         "Schedule permanent capacity upgrade if repeated"
-      ]
+      ],
+      "vendor_contact": {
+        "name": "RAN Operations Center",
+        "email": "ran-ops@telco.example.com",
+        "phone": "+34-900-RAN-OPS",
+        "escalation_group": "RAN_TEAM"
+      }
     },
     {
       "id": "PB-003",
       "name": "Core CPU saturation",
+      "trigger_conditions": ["CPU_UTIL > 85%", "MEM_UTIL > 90%", "SESSION_FAIL_RATE > 5%"],
+      "severity": "CRITICAL",
+      "estimated_resolution_minutes": 60,
       "steps": [
         "Validate CPU/MEM utilization on core nodes",
         "Restart or scale impacted services",
-        "Open core vendor ticket if thresholds remain breached"
-      ]
+        "Open core vendor ticket if thresholds remain breached",
+        "Engage vendor support for root cause analysis"
+      ],
+      "vendor_contact": {
+        "name": "Core Network Vendor Support",
+        "email": "core-support@vendor.example.com",
+        "phone": "+34-900-CORE-SUP",
+        "escalation_group": "CORE_TEAM",
+        "sla_response_minutes": 15
+      }
+    },
+    {
+      "id": "PB-004",
+      "name": "Mobility and handover failures",
+      "trigger_conditions": ["HO_FAILURE_RATE > 3%", "RACH_CONGESTION > 5%"],
+      "severity": "MINOR",
+      "estimated_resolution_minutes": 30,
+      "steps": [
+        "Identify cells with high handover failure rates",
+        "Check neighbor cell configurations",
+        "Adjust handover parameters if misconfigured",
+        "Escalate to RAN optimization team if persistent"
+      ],
+      "vendor_contact": {
+        "name": "RAN Optimization Team",
+        "email": "ran-optimization@telco.example.com",
+        "phone": "+34-900-RAN-OPT",
+        "escalation_group": "RAN_OPTIMIZATION"
+      }
     }
-  ]
+  ],
+  "escalation_matrix": {
+    "MINOR": { "initial_group": "NOC_L1", "escalate_after_minutes": 30 },
+    "MAJOR": { "initial_group": "NOC_L2", "escalate_after_minutes": 15 },
+    "CRITICAL": { "initial_group": "NOC_L3", "escalate_after_minutes": 5, "notify_management": true }
+  }
 }

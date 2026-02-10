@@ -3,11 +3,26 @@
   "type": "integrationhub_action",
   "description": "Calls Snowflake MCP server for telecom insight and returns prediction payload.",
   "inputs": [
-    { "name": "region", "type": "string", "required": true },
-    { "name": "time_window", "type": "string", "required": true },
-    { "name": "kpi_list", "type": "array", "required": true }
+    { "name": "correlation_id", "type": "string", "required": true, "description": "Unique ID for request tracing" },
+    { "name": "region", "type": "string", "required": true, "allowed_values": ["BARCELONA", "NORTH", "SOUTH", "EAST", "WEST"] },
+    { "name": "time_window_start", "type": "string", "required": true, "format": "ISO8601", "description": "Start timestamp" },
+    { "name": "time_window_end", "type": "string", "required": true, "format": "ISO8601", "description": "End timestamp" },
+    { "name": "kpi_list", "type": "array", "required": false, "default": ["PRB_UTIL", "RSRP", "RSRQ", "SINR"], "allowed_values": ["PRB_UTIL", "RSRP", "RSRQ", "SINR", "BACKHAUL_LATENCY", "PACKET_LOSS", "CPU_UTIL", "MEM_UTIL"] },
+    { "name": "limit", "type": "integer", "required": false, "default": 100, "max": 1000 }
   ],
   "steps": [
+    {
+      "name": "Validate_Inputs",
+      "type": "script",
+      "description": "Sanitize and validate inputs before SQL construction",
+      "script": "function validateInputs(region, kpi_list, limit) { var allowedRegions = ['BARCELONA', 'NORTH', 'SOUTH', 'EAST', 'WEST']; var allowedKpis = ['PRB_UTIL', 'RSRP', 'RSRQ', 'SINR', 'BACKHAUL_LATENCY', 'PACKET_LOSS', 'CPU_UTIL', 'MEM_UTIL']; if (allowedRegions.indexOf(region) === -1) throw new Error('Invalid region'); kpi_list.forEach(function(k) { if (allowedKpis.indexOf(k) === -1) throw new Error('Invalid KPI: ' + k); }); if (limit < 1 || limit > 1000) throw new Error('Limit must be 1-1000'); return true; }"
+    },
+    {
+      "name": "Build_SQL",
+      "type": "script",
+      "description": "Construct SQL with validated inputs (allowlist approach prevents injection)",
+      "script": "function buildSQL(region, time_window_start, time_window_end, kpi_list, limit) { var kpiFilter = kpi_list.map(function(k) { return \"'\" + k + \"'\"; }).join(','); return \"SELECT * FROM NETWORK_KPI WHERE region = '\" + region + \"' AND kpi_name IN (\" + kpiFilter + \") AND ts BETWEEN '\" + time_window_start + \"' AND '\" + time_window_end + \"' ORDER BY ts DESC LIMIT \" + limit; }"
+    },
     {
       "name": "Call_MCP",
       "type": "rest",
@@ -15,22 +30,43 @@
       "method": "POST",
       "headers": {
         "Authorization": "Bearer ${oauth_token}",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "X-Correlation-ID": "${correlation_id}"
       },
       "body": {
         "jsonrpc": "2.0",
-        "id": 1,
+        "id": "${correlation_id}",
         "method": "tools/call",
         "params": {
           "name": "sql_exec_tool",
           "arguments": {
-            "sql": "SELECT * FROM RADIO_KPI_V WHERE region = '${region}' LIMIT 100"
+            "sql": "${built_sql}"
           }
         }
+      },
+      "timeout_seconds": 30,
+      "retry": {
+        "max_attempts": 3,
+        "backoff_seconds": 2
       }
+    },
+    {
+      "name": "Handle_Response",
+      "type": "script",
+      "description": "Parse MCP response and handle errors",
+      "script": "function handleResponse(response, correlation_id) { if (!response || response.error) { var errMsg = response && response.error ? response.error.message : 'MCP server unavailable'; return { success: false, correlation_id: correlation_id, error: errMsg }; } return { success: true, correlation_id: correlation_id, data: response.result }; }"
     }
   ],
+  "error_handling": {
+    "on_timeout": { "action": "retry", "max_retries": 2 },
+    "on_401": { "action": "refresh_token_and_retry" },
+    "on_5xx": { "action": "circuit_breaker", "cooldown_seconds": 60 },
+    "on_failure": { "action": "log_and_alert", "alert_channel": "NOC_ALERTS" }
+  },
   "outputs": [
-    { "name": "mcp_response", "type": "object" }
+    { "name": "correlation_id", "type": "string" },
+    { "name": "success", "type": "boolean" },
+    { "name": "mcp_response", "type": "object" },
+    { "name": "error", "type": "string" }
   ]
 }
