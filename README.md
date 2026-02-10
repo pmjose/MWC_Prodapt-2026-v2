@@ -1,8 +1,6 @@
 # Agentic Assurance Demo (ServiceNow + Snowflake MCP)
 
-This repo contains a telecom assurance demo design and Snowflake setup assets for an agentic workflow:
-ServiceNow Assurance Agent orchestrates live events and remediation, while a Snowflake Insight/Anomaly Agent
-analyzes historical telemetry and returns predictions via the Snowflake-managed MCP server.
+This repo contains a telecom assurance demo for an agentic workflow: ServiceNow Assurance Agent orchestrates live events and remediation, while a Snowflake Insight/Anomaly Agent analyzes historical telemetry and returns predictions via the Snowflake-managed MCP server.
 
 ## Architecture Overview
 
@@ -16,7 +14,8 @@ analyzes historical telemetry and returns predictions via the Snowflake-managed 
 │  - Remediation      │                         │  - KPI Queries          │
 └─────────────────────┘                         └─────────────────────────┘
          │                                                  │
-         │                                                  │
+         │  Key-Pair (JWT)                                  │
+         │  Authentication                                  │
          ▼                                                  ▼
 ┌─────────────────────┐                         ┌─────────────────────────┐
 │  ServiceNow CMDB    │                         │   Snowflake Tables      │
@@ -28,254 +27,330 @@ analyzes historical telemetry and returns predictions via the Snowflake-managed 
 
 | Path | Description |
 |------|-------------|
-| `docs/architecture.md` | Architecture, agent lifecycle, A2A flow, and demo sequence |
-| `docs/servicenow_mcp_integration.md` | Instructions for calling Snowflake MCP from ServiceNow |
-| `docs/snowflake_validation_checklist.md` | Post-deployment validation steps |
 | `snowflake/01_provisioning_setup.sql` | Roles, users, OAuth, network policy, MCP server, resource monitor |
-| `snowflake/02_demo_setup.sql` | Schema, tables, sample data, views |
-| `snowflake/03_data_load.sql` | Load CSV data into Snowflake tables |
+| `snowflake/02_demo_setup.sql` | Schema, tables, views |
+| `snowflake/03_data_load.sql` | Load CSV data from GitHub into Snowflake |
 | `snowflake/data/` | CSVs with synthetic Tier-1 telco telemetry (Feb 22-28, 2026) |
 | `servicenow/` | IntegrationHub action, prompts, dashboards, correlation rules, playbooks |
-| `servicenow/xml_exports/` | Example ServiceNow XML exports (incident, cmdb_ci) |
-| `streamlit-erd-app/` | ERD visualization app for schema exploration |
+| `docs/SERVICENOW_INTEGRATION_GUIDE.md` | Complete ServiceNow handoff guide |
+| `test/` | Integration test scripts |
+| `keys/` | RSA key pair for authentication (not committed - generate locally) |
 
-## Quick Start
+---
+
+## Complete Setup Guide
+
+### Prerequisites
+
+- Snowflake account with ACCOUNTADMIN privileges
+- Python 3.x (for testing)
+- OpenSSL (for key generation)
+
+---
+
+## Step 1: Run Snowflake Scripts
+
+Run these scripts in order using Snowsight or SnowSQL as ACCOUNTADMIN:
+
+```sql
+-- 1. Provisioning (roles, users, OAuth, MCP server)
+-- Execute: snowflake/01_provisioning_setup.sql
+
+-- 2. Demo setup (tables, views)
+-- Execute: snowflake/02_demo_setup.sql
+
+-- 3. Data load (loads CSVs directly from GitHub)
+-- Execute: snowflake/03_data_load.sql
+```
+
+### What Gets Created
+
+| Component | Name |
+|-----------|------|
+| Database | `TELCO_AI_DB` |
+| Schema | `NETWORK_ASSURANCE` |
+| Warehouse | `TELCO_ASSURANCE_WH` |
+| MCP Server | `TELCO_ASSURANCE_MCP` |
+| Service User | `SERVICENOW_SVC_USER` |
+| Integration Role | `TELCO_SN_INTEGRATION_RL` |
+| Tables | 13 tables (2M+ rows) |
+| Views | 15 views |
+
+---
+
+## Step 2: Generate RSA Key Pair
+
+Generate keys for ServiceNow authentication:
 
 ```bash
-# 1. Run provisioning (creates OAuth, network policy, MCP server)
-snowflake/01_provisioning_setup.sql
+# Create keys directory
+mkdir -p keys
 
-# 2. Create tables and views
-snowflake/02_demo_setup.sql
+# Generate private key (PKCS8 format)
+openssl genrsa 2048 | openssl pkcs8 -topk8 -inform PEM -out keys/servicenow_rsa_key.p8 -nocrypt
 
-# 3. Upload CSVs to stage, then load data
-snowflake/03_data_load.sql
+# Extract public key
+openssl rsa -in keys/servicenow_rsa_key.p8 -pubout -out keys/servicenow_rsa_key.pub
 
-# 4. Get OAuth credentials for ServiceNow
-SELECT SYSTEM$SHOW_OAUTH_CLIENT_SECRETS('SERVICENOW_OAUTH_INTEGRATION');
-
-# 5. Test MCP endpoint
-POST https://<account>.snowflakecomputing.com/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/mcp-servers/TELCO_ASSURANCE_MCP
+# Display public key (you'll need this for Snowflake)
+cat keys/servicenow_rsa_key.pub
 ```
 
-## Deployment Runbook
+---
 
-### Step 1: Snowflake Setup
+## Step 3: Assign Public Key to Service User
+
+In Snowflake, run:
 
 ```sql
--- Run as ACCOUNTADMIN
--- 1. Execute provisioning (creates all infrastructure)
-@snowflake/01_provisioning_setup.sql
+-- Copy the public key content (without BEGIN/END headers)
+ALTER USER SERVICENOW_SVC_USER SET RSA_PUBLIC_KEY='MIIBIjAN...your_key_here...AQAB';
 
--- 2. Execute demo setup (creates tables/views)
-@snowflake/02_demo_setup.sql
-
--- 3. Upload CSVs to stage via Snowsight or SnowSQL
-PUT file:///path/to/snowflake/data/*.csv @TELCO_DATA_STAGE AUTO_COMPRESS=TRUE;
-
--- 4. Load data
-@snowflake/03_data_load.sql
+-- Verify the fingerprint
+DESC USER SERVICENOW_SVC_USER;
+-- Look for RSA_PUBLIC_KEY_FP value (e.g., SHA256:xxxxx)
 ```
 
-### Step 2: Configure OAuth
+---
+
+## Step 4: Grant Permissions
 
 ```sql
--- Get OAuth credentials
-SELECT SYSTEM$SHOW_OAUTH_CLIENT_SECRETS('SERVICENOW_OAUTH_INTEGRATION');
-
--- Returns: client_id, client_secret
--- Store these in ServiceNow Credentials store
+-- Grant SELECT on all tables to integration role
+GRANT SELECT ON ALL TABLES IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_SN_INTEGRATION_RL;
+GRANT SELECT ON ALL VIEWS IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_SN_INTEGRATION_RL;
 ```
 
-### Step 3: ServiceNow Configuration
+---
 
-| Setting | Value |
-|---------|-------|
-| **OAuth Provider** | Snowflake |
-| **Token URL** | `https://<account>.snowflakecomputing.com/oauth/token-request` |
-| **Client ID** | From step 2 |
-| **Client Secret** | From step 2 |
-| **MCP Endpoint** | `https://<account>.snowflakecomputing.com/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/mcp-servers/TELCO_ASSURANCE_MCP` |
+## Step 5: Test the Integration
 
-### Step 4: Validate Setup
+### Install Python dependencies
+
+```bash
+pip install PyJWT cryptography requests
+```
+
+### Run the test script
+
+```bash
+cd /path/to/project
+python test/test_keypair_auth.py
+```
+
+### Expected output
+
+```
+[TEST] MCP tools/list
+Status: 200
+{"jsonrpc": "2.0", "id": 1, "result": {"tools": [{"name": "sql_exec_tool"...}]}}
+
+[TEST] Barcelona Alarms
+Status: 200
+{"jsonrpc": "2.0", "id": 2, "result": {"content": [{"type": "text", "text": "...MINOR: 90, MAJOR: 56..."}]}}
+```
+
+---
+
+## Step 6: Validate Data Load
 
 ```sql
 -- Check row counts
-SELECT 'NETWORK_KPI' AS tbl, COUNT(*) FROM NETWORK_KPI
-UNION ALL SELECT 'ALARMS', COUNT(*) FROM ALARMS
-UNION ALL SELECT 'INCIDENTS', COUNT(*) FROM INCIDENTS
-UNION ALL SELECT 'CMDB_CI', COUNT(*) FROM CMDB_CI;
-
--- Expected:
--- NETWORK_KPI: 2,016,903
--- ALARMS: 148
--- INCIDENTS: 18
--- CMDB_CI: 363
+SELECT 'NETWORK_KPI' AS table_name, COUNT(*) AS row_count FROM TELCO_AI_DB.NETWORK_ASSURANCE.NETWORK_KPI
+UNION ALL SELECT 'ALARMS', COUNT(*) FROM TELCO_AI_DB.NETWORK_ASSURANCE.ALARMS
+UNION ALL SELECT 'TOPOLOGY', COUNT(*) FROM TELCO_AI_DB.NETWORK_ASSURANCE.TOPOLOGY
+UNION ALL SELECT 'INCIDENTS', COUNT(*) FROM TELCO_AI_DB.NETWORK_ASSURANCE.INCIDENTS
+UNION ALL SELECT 'CMDB_CI', COUNT(*) FROM TELCO_AI_DB.NETWORK_ASSURANCE.CMDB_CI
+ORDER BY row_count DESC;
 ```
 
-### Step 5: Test MCP Call
+### Expected counts
 
-```json
-POST /api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/mcp-servers/TELCO_ASSURANCE_MCP
-Authorization: Bearer <oauth_token>
-Content-Type: application/json
+| Table | Rows |
+|-------|------|
+| NETWORK_KPI | 2,016,903 |
+| TOPOLOGY | 375 |
+| CMDB_CI | 363 |
+| CMDB_RELATIONSHIPS | 360 |
+| SERVICE_FOOTPRINTS | 300 |
+| ALARMS | 148 |
+| ANOMALY_SCORES | 126 |
+| TROUBLE_TICKETS | 100 |
+| SITE_GEO | 72 |
+| INCIDENTS | 18 |
+| SLA_BREACHES | 12 |
+| CHANGE_EVENTS | 7 |
+| EVENT_CORRELATION_RULES | 4 |
 
-{
-  "jsonrpc": "2.0",
-  "id": "test-001",
-  "method": "tools/list",
-  "params": {}
-}
-```
-
-## Demo Flow
-
-```
-1. ServiceNow detects KPI degradation (PRB_UTIL > 90%)
-        │
-        ▼
-2. IntegrationHub calls Snowflake MCP (sql_exec_tool)
-        │
-        ▼
-3. Snowflake returns historical KPIs + anomaly scores
-        │
-        ▼
-4. ServiceNow correlates with CMDB, identifies impacted services
-        │
-        ▼
-5. RCA playbook triggered (e.g., PB-002: Cell congestion)
-        │
-        ▼
-6. Remediation executed, feedback sent to Snowflake
-```
-
-## Snowflake Components
-
-### MCP Server
-- **Name**: `TELCO_ASSURANCE_MCP`
-- **Location**: `TELCO_AI_DB.NETWORK_ASSURANCE`
-- **Tool**: `sql_exec_tool` (SYSTEM_EXECUTE_SQL)
-
-### Security
-| Component | Purpose |
-|-----------|---------|
-| `TELCO_SN_INTEGRATION_RL` | Least-privilege role for ServiceNow |
-| `SERVICENOW_SVC_USER` | Service account (TYPE=SERVICE) |
-| `SERVICENOW_OAUTH_INTEGRATION` | OAuth 2.0 client credentials |
-| `SERVICENOW_NETWORK_POLICY` | IP allowlist for ServiceNow datacenters |
-| `TELCO_ASSURANCE_MONITOR` | Resource monitor (100 credit quota) |
-
-### Views (Semantic Layer)
-| View | Purpose |
-|------|---------|
-| `RADIO_KPI_V` | PRB_UTIL, RSRP, RSRQ, SINR |
-| `CORE_KPI_V` | CPU_UTIL, MEM_UTIL, SESSION_FAIL_RATE |
-| `TRANSPORT_KPI_V` | BACKHAUL_LATENCY, PACKET_LOSS |
-| `CUSTOMER_IMPACT_V` | Incidents joined with topology |
-| `ANOMALY_SCORES_V` | ML anomaly detection outputs |
-
-## Data Sets (Barcelona, Feb 22-28, 2026)
-
-All demo data is synthetic but realistic for a Tier-1 telco operating in Barcelona.
-
-| File | Records | Description |
-|------|---------|-------------|
-| `network_kpi_part1.csv` | 1,008,451 | 15-min KPIs (part 1) |
-| `network_kpi_part2.csv` | 1,008,452 | 15-min KPIs (part 2) |
-| `alarms.csv` | 148 | Operational alarms |
-| `incidents.csv` | 18 | ServiceNow-style incidents |
-| `trouble_tickets.csv` | 100 | NOC operational tickets |
-| `topology.csv` | 375 | Network hierarchy |
-| `cmdb_ci.csv` | 363 | CMDB configuration items |
-| `cmdb_relationships.csv` | 360 | CI relationships |
-| `site_geo.csv` | 72 | Geospatial data |
-| `service_footprints.csv` | 300 | Subscriber counts |
-| `anomaly_scores.csv` | 126 | ML anomaly outputs |
-| `sla_breaches.csv` | 12 | SLA violations |
-| `change_events.csv` | 7 | Planned changes |
-| `event_correlation_rules.csv` | 4 | Alarm→Incident rules |
-
-### Key KPIs
-- **PRB_UTIL**: Cell resource utilization (%), congestion indicator
-- **RSRP/SINR**: Radio quality (dBm/dB)
-- **THROUGHPUT**: User throughput (Mbps)
-- **BACKHAUL_LATENCY/PACKET_LOSS**: Transport health
-- **CPU_UTIL/MEM_UTIL**: Core node health
+---
 
 ## ServiceNow Integration
 
-### IntegrationHub Action
-`servicenow/integrationhub_action.json` - Secure MCP integration with:
-- Input validation (allowlist-based SQL injection prevention)
-- Correlation ID tracking
-- Error handling and retry logic
-- OAuth token refresh
+### Configuration for ServiceNow Team
 
-### RCA Playbooks
-`servicenow/rca_playbooks.json` - Four remediation playbooks:
-| ID | Name | Trigger |
-|----|------|---------|
-| PB-001 | Backhaul latency remediation | BACKHAUL_LATENCY > 50ms |
-| PB-002 | Cell congestion mitigation | PRB_UTIL > 90% |
-| PB-003 | Core CPU saturation | CPU_UTIL > 85% |
-| PB-004 | Mobility/handover failures | HO_FAILURE_RATE > 3% |
+Provide the ServiceNow team with:
 
-### Correlation Rules
-`servicenow/correlation_rules.json` - Alarm-to-incident mapping rules
+1. **`docs/SERVICENOW_INTEGRATION_GUIDE.md`** - Complete integration guide
+2. **`keys/servicenow_rsa_key.p8`** - Private key (send via secure channel)
 
-### Dashboard Definitions
-`servicenow/dashboard_definitions.json` - NOC dashboard widgets
+### Key Parameters
 
-## Prerequisites
+| Parameter | Value |
+|-----------|-------|
+| **Account** | `SFSEEUROPE-PJOSE_AWS3` (or your account) |
+| **User** | `SERVICENOW_SVC_USER` |
+| **Authentication** | Key-Pair (JWT) with RS256 |
+| **MCP Endpoint** | `https://<account_locator>.<region>.aws.snowflakecomputing.com/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/mcp-servers/TELCO_ASSURANCE_MCP` |
 
-### Snowflake
-- Account with ACCOUNTADMIN privileges
-- Ability to create: database, schema, warehouse, MCP server, OAuth integration, network policy
+### HTTP Headers Required
 
-### ServiceNow
-- Instance with IntegrationHub or MID Server
-- Network access to Snowflake MCP endpoint
-- Credentials store for OAuth client_id/secret
+```
+Content-Type: application/json
+Authorization: Bearer <JWT_TOKEN>
+X-Snowflake-Authorization-Token-Type: KEYPAIR_JWT
+```
 
-### Network
-- ServiceNow datacenter IPs must be in Snowflake network policy
-- HTTPS (443) access to Snowflake account URL
+### JWT Token Structure
 
-## Post-Setup Checklist
+```json
+{
+    "iss": "<ACCOUNT>.<USER>.<KEY_FINGERPRINT>",
+    "sub": "<ACCOUNT>.<USER>",
+    "iat": <current_unix_timestamp>,
+    "exp": <expiration_timestamp>
+}
+```
 
-- [ ] Replace `<your-instance>` in OAuth redirect URI
-- [ ] Replace `<TEMP_PASSWORD>` with strong password
-- [ ] Get OAuth credentials: `SELECT SYSTEM$SHOW_OAUTH_CLIENT_SECRETS('SERVICENOW_OAUTH_INTEGRATION');`
-- [ ] Store credentials in ServiceNow
-- [ ] Update network policy with actual ServiceNow IPs
-- [ ] Remove `0.0.0.0/0` from network policy (demo only)
-- [ ] Test `tools/list` call from ServiceNow
-- [ ] Test `tools/call` with sample SQL query
-- [ ] Verify resource monitor alerts are configured
+### MCP Request Examples
+
+**List available tools:**
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tools/list",
+    "params": {}
+}
+```
+
+**Execute SQL query:**
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 2,
+    "method": "tools/call",
+    "params": {
+        "name": "sql_exec_tool",
+        "arguments": {
+            "sql": "SELECT region, severity, COUNT(*) FROM TELCO_AI_DB.NETWORK_ASSURANCE.ALARMS GROUP BY region, severity"
+        }
+    }
+}
+```
+
+---
+
+## Sample Queries for ServiceNow
+
+```sql
+-- Get alarms by severity
+SELECT region, severity, COUNT(*) as count 
+FROM TELCO_AI_DB.NETWORK_ASSURANCE.ALARMS 
+GROUP BY region, severity;
+
+-- Get KPIs for Barcelona
+SELECT kpi_name, ROUND(AVG(kpi_value), 2) as avg_value 
+FROM TELCO_AI_DB.NETWORK_ASSURANCE.NETWORK_KPI 
+WHERE region = 'BARCELONA' 
+GROUP BY kpi_name;
+
+-- Get high anomaly scores
+SELECT element_id, kpi_name, score 
+FROM TELCO_AI_DB.NETWORK_ASSURANCE.ANOMALY_SCORES 
+WHERE score > 0.8 
+ORDER BY score DESC;
+
+-- Get SLA breaches
+SELECT service_id, metric, penalty_eur 
+FROM TELCO_AI_DB.NETWORK_ASSURANCE.SLA_BREACHES 
+ORDER BY penalty_eur DESC;
+```
+
+---
+
+## Data Model
+
+### Tables
+
+| Table | Description |
+|-------|-------------|
+| `NETWORK_KPI` | Network performance metrics (PRB_UTIL, RSRP, throughput, etc.) |
+| `ALARMS` | Active network alarms with severity levels |
+| `TOPOLOGY` | Network element hierarchy |
+| `INCIDENTS` | ServiceNow-style incident records |
+| `SITE_GEO` | Site geographic coordinates |
+| `SERVICE_FOOTPRINTS` | Service-to-subscriber mappings |
+| `CHANGE_EVENTS` | Planned network changes |
+| `TROUBLE_TICKETS` | NOC operational tickets |
+| `SLA_BREACHES` | SLA violations with penalties |
+| `ANOMALY_SCORES` | ML anomaly detection outputs |
+| `CMDB_CI` | Configuration items |
+| `CMDB_RELATIONSHIPS` | CI relationships |
+| `EVENT_CORRELATION_RULES` | Alarm correlation rules |
+
+### Views
+
+| View | Description |
+|------|-------------|
+| `RADIO_KPI_V` | Radio KPIs (PRB_UTIL, RSRP, RSRQ, SINR) |
+| `CORE_KPI_V` | Core node KPIs (CPU, Memory, Session failures) |
+| `TRANSPORT_KPI_V` | Transport KPIs (Latency, Packet loss) |
+| `CUSTOMER_IMPACT_V` | Incidents with impacted elements |
+| `ANOMALY_SCORES_V` | Anomaly detection results |
+
+---
+
+## Security
+
+| Component | Purpose |
+|-----------|---------|
+| `TELCO_SN_INTEGRATION_RL` | Least-privilege role (SELECT only) |
+| `SERVICENOW_SVC_USER` | Service account with key-pair auth |
+| `SERVICENOW_NETWORK_POLICY` | IP allowlist for ServiceNow |
+| `TELCO_ASSURANCE_MONITOR` | Resource monitor (100 credit quota) |
+
+---
 
 ## Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
-| `401 Unauthorized` | Check OAuth token, refresh if expired |
-| `403 Forbidden` | Verify role has MCP server USAGE grant |
+| `390144: JWT token is invalid` | Check account name format in JWT issuer |
+| `002003: Object does not exist` | Use fully qualified table names |
+| `401 Unauthorized` | Verify key fingerprint matches |
 | `Network policy violation` | Add ServiceNow IPs to allowlist |
-| `tools/call fails` | Check SQL syntax, verify SELECT grants |
-| `Timeout` | Reduce query scope, check warehouse size |
+| `Timeout` | Add LIMIT clause, check warehouse size |
+
+---
+
+## File Security
+
+The `.gitignore` excludes sensitive files:
+- `keys/` - RSA key pairs
+- `*.p8`, `*.pem`, `*.key` - Private keys
+- `.env` - Environment variables
+
+**Never commit private keys to git.**
+
+---
 
 ## References
 
 - [Snowflake MCP Server Docs](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp)
-- [Snowflake MCP Getting Started Guide](https://www.snowflake.com/en/developers/guides/getting-started-with-snowflake-mcp-server/)
+- [Snowflake Key-Pair Authentication](https://docs.snowflake.com/en/user-guide/key-pair-auth)
 - [ServiceNow IntegrationHub](https://docs.servicenow.com/bundle/utah-integrate-applications/page/administer/integrationhub/concept/integrationhub.html)
-- [ServiceNow IP Ranges](https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0547244)
 
-## Limitations
-
-- Snowflake MCP server supports **tool calls only** (no streaming)
-- MCP hostnames must use **hyphens** (not underscores)
-- Maximum response size limited by MCP protocol
-- OAuth tokens expire (configure refresh in ServiceNow)
+---
 
 ## License
 
