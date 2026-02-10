@@ -42,3 +42,6 @@ snowflake_connection.json
 *.tmp
 *.temp
 .cache/
+
+# Environment-specific docs (contains credentials)
+docs/SERVICENOW_INTEGRATION_GUIDE_COPY.md

@@ -12,11 +12,11 @@ This document provides all the information required for ServiceNow IntegrationHu
 
 | Parameter | Value |
 |-----------|-------|
-| **Snowflake Account** | `SFSEEUROPE-PJOSE_AWS3` |
+| **Snowflake Account** | `<YOUR_SNOWFLAKE_ACCOUNT>` |
 | **Service User** | `SERVICENOW_SVC_USER` |
 | **Role** | `TELCO_SN_INTEGRATION_RL` |
 | **Warehouse** | `TELCO_ASSURANCE_WH` |
-| **Key Fingerprint** | `SHA256:38V2GLBGKHcUBcj0OhunwSohCADqHiRCyORyjO0GDoU=` |
+| **Key Fingerprint** | `<YOUR_KEY_FINGERPRINT>` |
 
 ### Private Key
 
@@ -31,7 +31,7 @@ The private key file (`servicenow_rsa_key.p8`) must be stored securely in Servic
 ### MCP Server URL
 
 ```
-POST https://ra19199.eu-west-3.aws.snowflakecomputing.com/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/mcp-servers/TELCO_ASSURANCE_MCP
+POST https://<ACCOUNT_LOCATOR>.<REGION>.aws.snowflakecomputing.com/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/mcp-servers/TELCO_ASSURANCE_MCP
 ```
 
 ---
@@ -54,8 +54,8 @@ X-Snowflake-Authorization-Token-Type: KEYPAIR_JWT
 
 ```json
 {
-    "iss": "SFSEEUROPE-PJOSE_AWS3.SERVICENOW_SVC_USER.SHA256:38V2GLBGKHcUBcj0OhunwSohCADqHiRCyORyjO0GDoU=",
-    "sub": "SFSEEUROPE-PJOSE_AWS3.SERVICENOW_SVC_USER",
+    "iss": "<YOUR_SNOWFLAKE_ACCOUNT>.SERVICENOW_SVC_USER.<YOUR_KEY_FINGERPRINT>",
+    "sub": "<YOUR_SNOWFLAKE_ACCOUNT>.SERVICENOW_SVC_USER",
     "iat": <current_unix_timestamp>,
     "exp": <current_unix_timestamp + 3600>
 }
@@ -83,8 +83,8 @@ jwt.setSigningKey(privateKey);
 jwt.setAlgorithm('RS256');
 
 var payload = {
-    iss: 'SFSEEUROPE-PJOSE_AWS3.SERVICENOW_SVC_USER.SHA256:38V2GLBGKHcUBcj0OhunwSohCADqHiRCyORyjO0GDoU=',
-    sub: 'SFSEEUROPE-PJOSE_AWS3.SERVICENOW_SVC_USER',
+    iss: '<YOUR_SNOWFLAKE_ACCOUNT>.SERVICENOW_SVC_USER.<YOUR_KEY_FINGERPRINT>',
+    sub: '<YOUR_SNOWFLAKE_ACCOUNT>.SERVICENOW_SVC_USER',
     iat: Math.floor(Date.now() / 1000),
     exp: Math.floor(Date.now() / 1000) + 3600
 };
@@ -351,7 +351,7 @@ Default query timeout is 60 seconds. For large aggregations, consider:
 # Generate JWT token (requires Python script or JWT library)
 # Then test with:
 
-curl -X POST "https://ra19199.eu-west-3.aws.snowflakecomputing.com/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/mcp-servers/TELCO_ASSURANCE_MCP" \
+curl -X POST "https://<ACCOUNT_LOCATOR>.<REGION>.aws.snowflakecomputing.com/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/mcp-servers/TELCO_ASSURANCE_MCP" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <JWT_TOKEN>" \
   -H "X-Snowflake-Authorization-Token-Type: KEYPAIR_JWT" \
