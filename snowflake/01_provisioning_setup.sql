@@ -1,5 +1,5 @@
 -- Snowflake provisioning for Telecom Assurance demo
--- Creates roles, user, warehouse, database, schema, MCP server, OAuth, and network policy.
+-- Creates roles, user, warehouse, database, schema, MCP server, Cortex Agent (A2A), OAuth, and network policy.
 -- Run with ACCOUNTADMIN or equivalent privileges.
 
 -- ============================================================================
@@ -8,11 +8,13 @@
 CREATE ROLE IF NOT EXISTS TELCO_ADMIN_RL;
 CREATE ROLE IF NOT EXISTS TELCO_MCP_RL;
 CREATE ROLE IF NOT EXISTS TELCO_SN_INTEGRATION_RL;
+CREATE ROLE IF NOT EXISTS TELCO_A2A_RL;
 
 -- Grant roles to SYSADMIN for administration
 GRANT ROLE TELCO_ADMIN_RL TO ROLE SYSADMIN;
 GRANT ROLE TELCO_MCP_RL TO ROLE TELCO_ADMIN_RL;
 GRANT ROLE TELCO_SN_INTEGRATION_RL TO ROLE TELCO_ADMIN_RL;
+GRANT ROLE TELCO_A2A_RL TO ROLE TELCO_ADMIN_RL;
 
 -- ============================================================================
 -- 2) WAREHOUSE
@@ -26,6 +28,7 @@ CREATE WAREHOUSE IF NOT EXISTS TELCO_ASSURANCE_WH
 GRANT USAGE, OPERATE ON WAREHOUSE TELCO_ASSURANCE_WH TO ROLE TELCO_ADMIN_RL;
 GRANT USAGE ON WAREHOUSE TELCO_ASSURANCE_WH TO ROLE TELCO_MCP_RL;
 GRANT USAGE ON WAREHOUSE TELCO_ASSURANCE_WH TO ROLE TELCO_SN_INTEGRATION_RL;
+GRANT USAGE ON WAREHOUSE TELCO_ASSURANCE_WH TO ROLE TELCO_A2A_RL;
 
 -- ============================================================================
 -- 3) DATABASE + SCHEMA
@@ -42,6 +45,9 @@ GRANT USAGE ON SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_MCP_RL;
 
 GRANT USAGE ON DATABASE TELCO_AI_DB TO ROLE TELCO_SN_INTEGRATION_RL;
 GRANT USAGE ON SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_SN_INTEGRATION_RL;
+
+GRANT USAGE ON DATABASE TELCO_AI_DB TO ROLE TELCO_A2A_RL;
+GRANT USAGE ON SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_A2A_RL;
 
 -- ============================================================================
 -- 4) NETWORK POLICY (Allowlist ServiceNow IPs)
@@ -90,6 +96,17 @@ CREATE USER IF NOT EXISTS SERVICENOW_SVC_USER
 
 GRANT ROLE TELCO_SN_INTEGRATION_RL TO USER SERVICENOW_SVC_USER;
 
+-- Dedicated A2A service account
+CREATE USER IF NOT EXISTS A2A_SVC_USER
+  LOGIN_NAME = 'A2A_SVC_USER'
+  DISPLAY_NAME = 'A2A Integration Service Account'
+  DEFAULT_ROLE = TELCO_A2A_RL
+  DEFAULT_WAREHOUSE = TELCO_ASSURANCE_WH
+  TYPE = SERVICE
+  COMMENT = 'Service account for A2A Cortex Agent integration';
+
+GRANT ROLE TELCO_A2A_RL TO USER A2A_SVC_USER;
+
 -- Apply network policy to ServiceNow user
 ALTER USER SERVICENOW_SVC_USER SET NETWORK_POLICY = SERVICENOW_NETWORK_POLICY;
 
@@ -135,6 +152,11 @@ FROM SPECIFICATION $$
       name: "sql_exec_tool"
       type: "SYSTEM_EXECUTE_SQL"
       description: "Execute SQL queries on telecom assurance views for network KPIs, alarms, incidents, and anomaly detection."
+    - title: "Analyst Tool"
+      name: "analyst_tool"
+      type: "CORTEX_ANALYST_MESSAGE"
+      semantic_model: "TELCO_AI_DB.NETWORK_ASSURANCE.TELCO_SEMANTIC_VIEW"
+      description: "Convert natural language questions to SQL queries using semantic model for telecom network data."
 $$;
 
 GRANT USAGE ON MCP SERVER TELCO_AI_DB.NETWORK_ASSURANCE.TELCO_ASSURANCE_MCP
@@ -143,7 +165,69 @@ GRANT USAGE ON MCP SERVER TELCO_AI_DB.NETWORK_ASSURANCE.TELCO_ASSURANCE_MCP
   TO ROLE TELCO_SN_INTEGRATION_RL;
 
 -- ============================================================================
--- 8) DATA ACCESS GRANTS
+-- 8) CORTEX AGENT (for A2A Protocol)
+-- ============================================================================
+-- AI-powered agent that understands natural language and queries telecom data
+-- Prerequisites: Create a semantic view first (see 02_demo_setup.sql)
+
+CREATE OR REPLACE AGENT TELCO_ASSURANCE_AGENT
+  COMMENT = 'Telecom Network Assurance AI Agent for A2A integration'
+  PROFILE = '{"display_name": "Telco Assurance Agent", "color": "blue"}'
+  FROM SPECIFICATION
+$$
+models:
+  orchestration: claude-3-5-sonnet
+
+orchestration:
+  budget:
+    seconds: 60
+    tokens: 16000
+
+instructions:
+  response: "Provide clear, actionable insights for network operations teams. Format responses with bullet points and tables where appropriate."
+  orchestration: "Use the Analyst tool for all data queries about KPIs, alarms, incidents, and anomalies."
+  system: |
+    You are a Telecom Network Assurance AI Assistant. You help network operations teams analyze and troubleshoot telecom network issues.
+    
+    Available Data Sources:
+    - RADIO_KPI_V: Radio network KPIs (PRB_UTIL, RSRP, RSRQ, SINR)
+    - CORE_KPI_V: Core network KPIs (CPU_UTIL, MEM_UTIL, SESSION_FAIL_RATE)
+    - TRANSPORT_KPI_V: Transport KPIs (BACKHAUL_LATENCY, PACKET_LOSS)
+    - INCIDENTS_V: Network incidents and trouble tickets
+    - TOPOLOGY_V: Network topology (cells, sites, regions)
+    - SITE_GEO_V: Geographic site locations
+    - ANOMALY_SCORES_V: ML-detected anomalies
+    
+    Always use fully qualified table names: TELCO_AI_DB.NETWORK_ASSURANCE.<table_name>
+  sample_questions:
+    - question: "What are the current network issues in Barcelona?"
+      answer: "I'll analyze KPIs and alarms for the Barcelona region."
+    - question: "Show me high anomaly scores"
+      answer: "I'll query the anomaly detection results."
+
+tools:
+  - tool_spec:
+      type: "cortex_analyst_text_to_sql"
+      name: "TelcoAnalyst"
+      description: "Query telecom network data using natural language - converts to SQL automatically"
+
+tool_resources:
+  TelcoAnalyst:
+    semantic_view: "TELCO_AI_DB.NETWORK_ASSURANCE.TELCO_SEMANTIC_VIEW"
+    execution_environment:
+      type: "warehouse"
+      warehouse: "TELCO_ASSURANCE_WH"
+      query_timeout: 30
+$$;
+
+-- Grant usage on Cortex Agent
+GRANT USAGE ON AGENT TELCO_AI_DB.NETWORK_ASSURANCE.TELCO_ASSURANCE_AGENT
+  TO ROLE TELCO_A2A_RL;
+GRANT USAGE ON AGENT TELCO_AI_DB.NETWORK_ASSURANCE.TELCO_ASSURANCE_AGENT
+  TO ROLE TELCO_ADMIN_RL;
+
+-- ============================================================================
+-- 9) DATA ACCESS GRANTS
 -- ============================================================================
 -- Apply after demo_setup.sql creates tables/views
 
@@ -151,15 +235,19 @@ GRANT SELECT ON ALL TABLES IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO
 GRANT SELECT ON ALL VIEWS IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_MCP_RL;
 GRANT SELECT ON ALL TABLES IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_SN_INTEGRATION_RL;
 GRANT SELECT ON ALL VIEWS IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_SN_INTEGRATION_RL;
+GRANT SELECT ON ALL TABLES IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_A2A_RL;
+GRANT SELECT ON ALL VIEWS IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_A2A_RL;
 
 -- Future grants for new objects (auto-apply SELECT to any new tables/views)
 GRANT SELECT ON FUTURE TABLES IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_MCP_RL;
 GRANT SELECT ON FUTURE VIEWS IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_MCP_RL;
 GRANT SELECT ON FUTURE TABLES IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_SN_INTEGRATION_RL;
 GRANT SELECT ON FUTURE VIEWS IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_SN_INTEGRATION_RL;
+GRANT SELECT ON FUTURE TABLES IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_A2A_RL;
+GRANT SELECT ON FUTURE VIEWS IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_A2A_RL;
 
 -- ============================================================================
--- 9) RESOURCE MONITOR (Cost Control)
+-- 10) RESOURCE MONITOR (Cost Control)
 -- ============================================================================
 CREATE OR REPLACE RESOURCE MONITOR TELCO_ASSURANCE_MONITOR
   WITH CREDIT_QUOTA = 100
@@ -173,12 +261,15 @@ CREATE OR REPLACE RESOURCE MONITOR TELCO_ASSURANCE_MONITOR
 ALTER WAREHOUSE TELCO_ASSURANCE_WH SET RESOURCE_MONITOR = TELCO_ASSURANCE_MONITOR;
 
 -- ============================================================================
--- 10) VALIDATION QUERIES
+-- 11) VALIDATION QUERIES
 -- ============================================================================
 -- Run these after setup to verify configuration
 
 -- Check MCP server exists
 -- SHOW MCP SERVERS IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE;
+
+-- Check Cortex Agent exists
+-- SHOW AGENTS IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE;
 
 -- Check OAuth integration
 -- SHOW SECURITY INTEGRATIONS LIKE 'SERVICENOW%';
@@ -196,8 +287,12 @@ ALTER WAREHOUSE TELCO_ASSURANCE_WH SET RESOURCE_MONITOR = TELCO_ASSURANCE_MONITO
 -- POST to: https://<account>.snowflakecomputing.com/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/mcp-servers/TELCO_ASSURANCE_MCP
 -- Body: {"jsonrpc": "2.0", "id": 1, "method": "tools/list", "params": {}}
 
+-- Test Cortex Agent A2A call (after authentication)
+-- POST to: https://<account>.snowflakecomputing.com/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/agents/TELCO_ASSURANCE_AGENT:run
+-- Body: {"messages": [{"role": "user", "content": [{"type": "text", "text": "What data do you have access to?"}]}]}
+
 -- ============================================================================
--- POST-SETUP CHECKLIST
+-- 12) POST-SETUP CHECKLIST
 -- ============================================================================
 /*
 1. Replace '<your-instance>' in OAUTH_REDIRECT_URI with your ServiceNow instance name
@@ -206,7 +301,10 @@ ALTER WAREHOUSE TELCO_ASSURANCE_WH SET RESOURCE_MONITOR = TELCO_ASSURANCE_MONITO
 4. Store the client_id and client_secret in ServiceNow Credentials store
 5. Update SERVICENOW_NETWORK_POLICY with actual ServiceNow datacenter IPs
 6. Remove '0.0.0.0/0' from ALLOWED_IP_LIST in production
-7. Run demo_setup.sql to create tables/views
+7. Run demo_setup.sql to create tables/views AND semantic view (TELCO_SEMANTIC_VIEW)
 8. Run data_load.sql to load sample data
-9. Test with tools/list call from ServiceNow
+9. Test MCP with tools/list call from ServiceNow
+10. Configure A2A_SVC_USER RSA public key for A2A integration
+11. Grant CORTEX_USER or CORTEX_AGENT_USER role to A2A_SVC_USER
+12. Test Cortex Agent with A2A wrapper (python a2a/main.py)
 */

@@ -45,3 +45,4 @@ snowflake_connection.json
 
 # Environment-specific docs (contains credentials)
 docs/SERVICENOW_INTEGRATION_GUIDE_COPY.md
+INTEGRATION_CREDENTIALS.md

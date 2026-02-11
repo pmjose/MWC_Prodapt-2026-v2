@@ -292,3 +292,349 @@ GRANT SELECT ON ALL VIEWS IN SCHEMA TELCO_AI_DB.NETWORK_ASSURANCE TO ROLE TELCO_
 GRANT USAGE ON MCP SERVER TELCO_AI_DB.NETWORK_ASSURANCE.TELCO_ASSURANCE_MCP
   TO ROLE TELCO_SN_INTEGRATION_RL;
 */
+
+-- ============================================================================
+-- 6) SEMANTIC VIEW (for Cortex Agent / A2A integration)
+-- ============================================================================
+-- Reference: https://docs.snowflake.com/en/user-guide/views-semantic/overview
+-- The semantic view provides metadata for Cortex Analyst to generate accurate SQL
+-- Uses SYSTEM$CREATE_SEMANTIC_VIEW_FROM_YAML with dimensions, facts, and metrics
+
+CALL SYSTEM$CREATE_SEMANTIC_VIEW_FROM_YAML(
+  'TELCO_AI_DB.NETWORK_ASSURANCE',
+  $$
+name: TELCO_SEMANTIC_VIEW
+description: Semantic model for telecom network assurance data including KPIs, alarms, incidents, topology, and anomaly detection.
+
+tables:
+  - name: NETWORK_KPI
+    description: Network performance KPIs across all network layers
+    base_table:
+      database: TELCO_AI_DB
+      schema: NETWORK_ASSURANCE
+      table: NETWORK_KPI
+    dimensions:
+      - name: TS
+        description: Timestamp of the KPI measurement
+        expr: TS
+        data_type: TIMESTAMP_NTZ
+      - name: REGION
+        description: Geographic region (BARCELONA, MADRID, VALENCIA)
+        expr: REGION
+        data_type: VARCHAR
+      - name: CELL_ID
+        description: Unique identifier for the network cell
+        expr: CELL_ID
+        data_type: VARCHAR
+      - name: KPI_NAME
+        description: Name of the KPI (PRB_UTIL, RSRP, RSRQ, SINR, CPU_UTIL, MEM_UTIL, BACKHAUL_LATENCY, PACKET_LOSS, SESSION_FAIL_RATE)
+        expr: KPI_NAME
+        data_type: VARCHAR
+      - name: KPI_UNIT
+        description: Unit of measurement (%, dBm, dB, ms)
+        expr: KPI_UNIT
+        data_type: VARCHAR
+      - name: VENDOR
+        description: Equipment vendor (ERICSSON, NOKIA, HUAWEI)
+        expr: VENDOR
+        data_type: VARCHAR
+      - name: TECH
+        description: Technology generation (4G, 5G)
+        expr: TECH
+        data_type: VARCHAR
+    facts:
+      - name: KPI_VALUE
+        description: Numeric value of the KPI measurement
+        expr: KPI_VALUE
+        data_type: FLOAT
+    metrics:
+      - name: AVG_KPI_VALUE
+        description: Average KPI value
+        expr: AVG(KPI_VALUE)
+      - name: MAX_KPI_VALUE
+        description: Maximum KPI value
+        expr: MAX(KPI_VALUE)
+      - name: MIN_KPI_VALUE
+        description: Minimum KPI value
+        expr: MIN(KPI_VALUE)
+      - name: KPI_COUNT
+        description: Count of KPI measurements
+        expr: COUNT(*)
+
+  - name: ALARMS
+    description: Network alarms with severity levels
+    base_table:
+      database: TELCO_AI_DB
+      schema: NETWORK_ASSURANCE
+      table: ALARMS
+    dimensions:
+      - name: TS
+        description: Timestamp when the alarm was raised
+        expr: TS
+        data_type: TIMESTAMP_NTZ
+      - name: REGION
+        description: Geographic region
+        expr: REGION
+        data_type: VARCHAR
+      - name: CELL_ID
+        description: Cell that raised the alarm
+        expr: CELL_ID
+        data_type: VARCHAR
+      - name: ALARM_CODE
+        description: Alarm code identifier
+        expr: ALARM_CODE
+        data_type: VARCHAR
+      - name: SEVERITY
+        description: Alarm severity (CRITICAL, MAJOR, MINOR, WARNING)
+        expr: SEVERITY
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: Alarm description
+        expr: DESCRIPTION
+        data_type: VARCHAR
+      - name: INCIDENT_NUMBER
+        description: Associated incident number
+        expr: INCIDENT_NUMBER
+        data_type: VARCHAR
+    metrics:
+      - name: ALARM_COUNT
+        description: Count of alarms
+        expr: COUNT(*)
+      - name: CRITICAL_ALARM_COUNT
+        description: Count of critical alarms
+        expr: COUNT_IF(SEVERITY = 'CRITICAL')
+
+  - name: INCIDENTS
+    description: Network incidents from ServiceNow
+    base_table:
+      database: TELCO_AI_DB
+      schema: NETWORK_ASSURANCE
+      table: INCIDENTS
+    dimensions:
+      - name: NUMBER
+        description: Unique incident number (e.g., INC-1001)
+        expr: NUMBER
+        data_type: VARCHAR
+      - name: OPENED_AT
+        description: When the incident was opened
+        expr: OPENED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: RESOLVED_AT
+        description: When resolved (null if open)
+        expr: RESOLVED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: REGION
+        description: Affected region
+        expr: REGION
+        data_type: VARCHAR
+      - name: SERVICE_ID
+        description: Impacted service
+        expr: SERVICE_ID
+        data_type: VARCHAR
+      - name: PRIORITY
+        description: Incident priority (P1-Critical, P2-High, P3-Medium, P4-Low)
+        expr: PRIORITY
+        data_type: VARCHAR
+      - name: STATE
+        description: Current state (OPEN, IN_PROGRESS, RESOLVED, CLOSED)
+        expr: STATE
+        data_type: VARCHAR
+      - name: SHORT_DESCRIPTION
+        description: Brief summary
+        expr: SHORT_DESCRIPTION
+        data_type: VARCHAR
+      - name: ASSIGNMENT_GROUP
+        description: Team assigned
+        expr: ASSIGNMENT_GROUP
+        data_type: VARCHAR
+    facts:
+      - name: DURATION_MINUTES
+        description: Total duration in minutes
+        expr: DURATION_MINUTES
+        data_type: INTEGER
+      - name: MTTR_MINUTES
+        description: Mean time to repair in minutes
+        expr: MTTR_MINUTES
+        data_type: INTEGER
+    metrics:
+      - name: INCIDENT_COUNT
+        description: Count of incidents
+        expr: COUNT(*)
+      - name: OPEN_INCIDENT_COUNT
+        description: Count of open incidents
+        expr: COUNT_IF(STATE = 'OPEN')
+      - name: AVG_MTTR
+        description: Average mean time to repair
+        expr: AVG(MTTR_MINUTES)
+
+  - name: TOPOLOGY
+    description: Network element hierarchy
+    base_table:
+      database: TELCO_AI_DB
+      schema: NETWORK_ASSURANCE
+      table: TOPOLOGY
+    dimensions:
+      - name: ELEMENT_ID
+        description: Network element identifier
+        expr: ELEMENT_ID
+        data_type: VARCHAR
+      - name: ELEMENT_TYPE
+        description: Type of element (RADIO_CELL, RADIO_SITE, CORE_NODE)
+        expr: ELEMENT_TYPE
+        data_type: VARCHAR
+      - name: REGION
+        description: Region location
+        expr: REGION
+        data_type: VARCHAR
+      - name: PARENT_ID
+        description: Parent element
+        expr: PARENT_ID
+        data_type: VARCHAR
+      - name: SERVICE_ID
+        description: Associated service
+        expr: SERVICE_ID
+        data_type: VARCHAR
+    metrics:
+      - name: ELEMENT_COUNT
+        description: Count of network elements
+        expr: COUNT(*)
+
+  - name: ANOMALY_SCORES
+    description: ML-detected anomalies
+    base_table:
+      database: TELCO_AI_DB
+      schema: NETWORK_ASSURANCE
+      table: ANOMALY_SCORES
+    dimensions:
+      - name: TS
+        description: Timestamp
+        expr: TS
+        data_type: TIMESTAMP_NTZ
+      - name: REGION
+        description: Region
+        expr: REGION
+        data_type: VARCHAR
+      - name: ELEMENT_ID
+        description: Network element
+        expr: ELEMENT_ID
+        data_type: VARCHAR
+      - name: KPI_NAME
+        description: KPI name
+        expr: KPI_NAME
+        data_type: VARCHAR
+      - name: LABEL
+        description: Classification label
+        expr: LABEL
+        data_type: VARCHAR
+      - name: MODEL_VERSION
+        description: ML model version
+        expr: MODEL_VERSION
+        data_type: VARCHAR
+    facts:
+      - name: SCORE
+        description: Anomaly score 0-1 (higher = more anomalous)
+        expr: SCORE
+        data_type: FLOAT
+    metrics:
+      - name: AVG_ANOMALY_SCORE
+        description: Average anomaly score
+        expr: AVG(SCORE)
+      - name: HIGH_ANOMALY_COUNT
+        description: Count of high anomalies (score > 0.7)
+        expr: COUNT_IF(SCORE > 0.7)
+
+  - name: SLA_BREACHES
+    description: SLA violations
+    base_table:
+      database: TELCO_AI_DB
+      schema: NETWORK_ASSURANCE
+      table: SLA_BREACHES
+    dimensions:
+      - name: BREACH_ID
+        description: Breach identifier
+        expr: BREACH_ID
+        data_type: VARCHAR
+      - name: TS_START
+        description: Start time
+        expr: TS_START
+        data_type: TIMESTAMP_NTZ
+      - name: TS_END
+        description: End time
+        expr: TS_END
+        data_type: TIMESTAMP_NTZ
+      - name: SERVICE_ID
+        description: Affected service
+        expr: SERVICE_ID
+        data_type: VARCHAR
+      - name: REGION
+        description: Affected region
+        expr: REGION
+        data_type: VARCHAR
+      - name: METRIC
+        description: Breached metric
+        expr: METRIC
+        data_type: VARCHAR
+    facts:
+      - name: THRESHOLD
+        description: SLA threshold
+        expr: THRESHOLD
+        data_type: FLOAT
+      - name: OBSERVED
+        description: Observed value
+        expr: OBSERVED
+        data_type: FLOAT
+      - name: PENALTY_EUR
+        description: Penalty in Euros
+        expr: PENALTY_EUR
+        data_type: FLOAT
+    metrics:
+      - name: TOTAL_PENALTY
+        description: Total penalty amount
+        expr: SUM(PENALTY_EUR)
+      - name: BREACH_COUNT
+        description: Count of SLA breaches
+        expr: COUNT(*)
+
+  - name: SITE_GEO
+    description: Site coordinates
+    base_table:
+      database: TELCO_AI_DB
+      schema: NETWORK_ASSURANCE
+      table: SITE_GEO
+    dimensions:
+      - name: SITE_ID
+        description: Site identifier
+        expr: SITE_ID
+        data_type: VARCHAR
+      - name: REGION
+        description: Region name
+        expr: REGION
+        data_type: VARCHAR
+      - name: NEIGHBORHOOD
+        description: Neighborhood name
+        expr: NEIGHBORHOOD
+        data_type: VARCHAR
+    facts:
+      - name: LATITUDE
+        description: Latitude
+        expr: LATITUDE
+        data_type: FLOAT
+      - name: LONGITUDE
+        description: Longitude
+        expr: LONGITUDE
+        data_type: FLOAT
+    metrics:
+      - name: SITE_COUNT
+        description: Count of sites
+        expr: COUNT(*)
+$$);
+
+-- Grant SELECT on semantic view to roles
+GRANT SELECT ON SEMANTIC VIEW TELCO_AI_DB.NETWORK_ASSURANCE.TELCO_SEMANTIC_VIEW 
+  TO ROLE TELCO_A2A_RL;
+GRANT SELECT ON SEMANTIC VIEW TELCO_AI_DB.NETWORK_ASSURANCE.TELCO_SEMANTIC_VIEW 
+  TO ROLE TELCO_ADMIN_RL;
+GRANT SELECT ON SEMANTIC VIEW TELCO_AI_DB.NETWORK_ASSURANCE.TELCO_SEMANTIC_VIEW 
+  TO ROLE TELCO_MCP_RL;
+GRANT SELECT ON SEMANTIC VIEW TELCO_AI_DB.NETWORK_ASSURANCE.TELCO_SEMANTIC_VIEW 
+  TO ROLE TELCO_SN_INTEGRATION_RL;
