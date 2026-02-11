@@ -1,7 +1,7 @@
 # MCP Server Test Report
 
-**Generated:** 2026-02-10 09:56:54  
-**Duration:** 16.57s  
+**Generated:** 2026-02-11 16:13:52  
+**Duration:** 29.08s  
 **Endpoint:** `https://ra19199.eu-west-3.aws.snowflakecomputing.com/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/mcp-servers/TELCO_ASSURANCE_MCP`
 
 ---
@@ -24,61 +24,61 @@
 
 | Test | Status | Time (ms) | Details |
 |------|--------|-----------|----------|
-| tools/list | ✅ PASS | 728 | OK |
+| tools/list | ✅ PASS | 733 | OK |
 
 ### Table Queries (7/7 passed)
 
 | Test | Status | Time (ms) | Details |
 |------|--------|-----------|----------|
-| ALARMS - Count | ✅ PASS | 774 | 1 rows returned |
-| NETWORK_KPI - Count | ✅ PASS | 683 | 1 rows returned |
-| TOPOLOGY - Count | ✅ PASS | 664 | 1 rows returned |
-| INCIDENTS - Count | ✅ PASS | 662 | 1 rows returned |
-| CMDB_CI - Count | ✅ PASS | 797 | 1 rows returned |
-| SLA_BREACHES - Count | ✅ PASS | 695 | 1 rows returned |
+| ALARMS - Count | ✅ PASS | 2093 | 1 rows returned |
+| NETWORK_KPI - Count | ✅ PASS | 794 | 1 rows returned |
+| TOPOLOGY - Count | ✅ PASS | 773 | 1 rows returned |
+| INCIDENTS - Count | ✅ PASS | 943 | 1 rows returned |
+| CMDB_CI - Count | ✅ PASS | 1596 | 1 rows returned |
+| SLA_BREACHES - Count | ✅ PASS | 754 | 1 rows returned |
 | ANOMALY_SCORES - Count | ✅ PASS | 670 | 1 rows returned |
 
 ### Aggregations (5/5 passed)
 
 | Test | Status | Time (ms) | Details |
 |------|--------|-----------|----------|
-| Alarms by Severity | ✅ PASS | 650 | 3 rows returned |
-| Alarms by Region | ✅ PASS | 628 | 1 rows returned |
-| KPI Averages | ✅ PASS | 622 | 15 rows returned |
-| Incidents by Priority | ✅ PASS | 645 | 4 rows returned |
-| SLA Penalty Sum | ✅ PASS | 625 | 1 rows returned |
+| Alarms by Severity | ✅ PASS | 2628 | 3 rows returned |
+| Alarms by Region | ✅ PASS | 689 | 1 rows returned |
+| KPI Averages | ✅ PASS | 1616 | 15 rows returned |
+| Incidents by Priority | ✅ PASS | 728 | 4 rows returned |
+| SLA Penalty Sum | ✅ PASS | 1612 | 1 rows returned |
 
 ### Filters (4/4 passed)
 
 | Test | Status | Time (ms) | Details |
 |------|--------|-----------|----------|
-| Major Alarms | ✅ PASS | 649 | 5 rows returned |
-| High Anomaly Scores | ✅ PASS | 633 | 5 rows returned |
-| Open Incidents | ✅ PASS | 625 | 0 rows returned |
-| Barcelona KPIs | ✅ PASS | 653 | 5 rows returned |
+| Major Alarms | ✅ PASS | 617 | 5 rows returned |
+| High Anomaly Scores | ✅ PASS | 1634 | 5 rows returned |
+| Open Incidents | ✅ PASS | 1593 | 0 rows returned |
+| Barcelona KPIs | ✅ PASS | 1860 | 5 rows returned |
 
 ### Joins (2/2 passed)
 
 | Test | Status | Time (ms) | Details |
 |------|--------|-----------|----------|
-| Alarms + Topology | ✅ PASS | 634 | 3 rows returned |
-| Incidents + Topology | ✅ PASS | 690 | 5 rows returned |
+| Alarms + Topology | ✅ PASS | 1944 | 3 rows returned |
+| Incidents + Topology | ✅ PASS | 608 | 5 rows returned |
 
 ### Views (4/4 passed)
 
 | Test | Status | Time (ms) | Details |
 |------|--------|-----------|----------|
-| RADIO_KPI_V | ✅ PASS | 680 | 5 rows returned |
-| CORE_KPI_V | ✅ PASS | 623 | 5 rows returned |
-| TRANSPORT_KPI_V | ✅ PASS | 657 | 5 rows returned |
-| ANOMALY_SCORES_V | ✅ PASS | 622 | 5 rows returned |
+| RADIO_KPI_V | ✅ PASS | 792 | 5 rows returned |
+| CORE_KPI_V | ✅ PASS | 1600 | 5 rows returned |
+| TRANSPORT_KPI_V | ✅ PASS | 737 | 5 rows returned |
+| ANOMALY_SCORES_V | ✅ PASS | 795 | 5 rows returned |
 
 ### Edge Cases (2/2 passed)
 
 | Test | Status | Time (ms) | Details |
 |------|--------|-----------|----------|
-| Empty Result | ✅ PASS | 634 | 0 rows returned |
-| Large Result (Limited) | ✅ PASS | 609 | 100 rows returned |
+| Empty Result | ✅ PASS | 628 | 0 rows returned |
+| Large Result (Limited) | ✅ PASS | 620 | 100 rows returned |
 
 ---
 
@@ -86,13 +86,13 @@
 
 | Category | Avg Response (ms) | Max Response (ms) |
 |----------|-------------------|-------------------|
-| Connectivity | 728 | 728 |
-| Table Queries | 706 | 797 |
-| Aggregations | 634 | 650 |
-| Filters | 640 | 653 |
-| Joins | 662 | 690 |
-| Views | 646 | 680 |
-| Edge Cases | 622 | 634 |
+| Connectivity | 733 | 733 |
+| Table Queries | 1089 | 2093 |
+| Aggregations | 1455 | 2628 |
+| Filters | 1426 | 1860 |
+| Joins | 1276 | 1944 |
+| Views | 981 | 1600 |
+| Edge Cases | 624 | 628 |
 
 ---
 
@@ -115,7 +115,7 @@
 
 **Category:** Connectivity  
 **Status Code:** 200  
-**Response Time:** 728ms
+**Response Time:** 733ms
 
 **Request:**
 ```json
@@ -160,7 +160,7 @@
 
 **Category:** Table Queries  
 **Status Code:** 200  
-**Response Time:** 774ms
+**Response Time:** 2093ms
 
 **Request:**
 ```json
@@ -186,7 +186,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9075-0001-3926010ab83a\",\"result_set\":{\"data\":[[\"148\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":7}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c25114-0001-9075-0001-3926010ab83a\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9123-0001-392601116f26\",\"result_set\":{\"data\":[[\"148\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":7}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c2582d-0001-9123-0001-392601116f26\"}}"
       }
     ],
     "isError": false
@@ -200,7 +200,7 @@
 
 **Category:** Table Queries  
 **Status Code:** 200  
-**Response Time:** 683ms
+**Response Time:** 794ms
 
 **Request:**
 ```json
@@ -226,7 +226,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-8fca-0001-3926010a9a9a\",\"result_set\":{\"data\":[[\"2016903\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":11}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c25114-0001-8fca-0001-3926010a9a9a\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9123-0001-392601116f36\",\"result_set\":{\"data\":[[\"2016903\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":11}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c2582d-0001-9123-0001-392601116f36\"}}"
       }
     ],
     "isError": false
@@ -240,7 +240,7 @@
 
 **Category:** Table Queries  
 **Status Code:** 200  
-**Response Time:** 664ms
+**Response Time:** 773ms
 
 **Request:**
 ```json
@@ -266,7 +266,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-8fca-0001-3926010a9a9e\",\"result_set\":{\"data\":[[\"375\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":7}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c25114-0001-8fca-0001-3926010a9a9e\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9123-0001-392601116f3a\",\"result_set\":{\"data\":[[\"375\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":7}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c2582d-0001-9123-0001-392601116f3a\"}}"
       }
     ],
     "isError": false
@@ -280,7 +280,7 @@
 
 **Category:** Table Queries  
 **Status Code:** 200  
-**Response Time:** 662ms
+**Response Time:** 943ms
 
 **Request:**
 ```json
@@ -306,7 +306,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-8fca-0001-3926010a9aa2\",\"result_set\":{\"data\":[[\"18\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":6}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c25114-0001-8fca-0001-3926010a9aa2\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-392601117046\",\"result_set\":{\"data\":[[\"18\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":6}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c2582d-0001-9161-0001-392601117046\"}}"
       }
     ],
     "isError": false
@@ -320,7 +320,7 @@
 
 **Category:** Table Queries  
 **Status Code:** 200  
-**Response Time:** 797ms
+**Response Time:** 1596ms
 
 **Request:**
 ```json
@@ -346,7 +346,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9075-0001-3926010ab83e\",\"result_set\":{\"data\":[[\"363\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":7}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c25114-0001-9075-0001-3926010ab83e\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-39260111704a\",\"result_set\":{\"data\":[[\"363\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":7}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c2582d-0001-9161-0001-39260111704a\"}}"
       }
     ],
     "isError": false
@@ -360,7 +360,7 @@
 
 **Category:** Table Queries  
 **Status Code:** 200  
-**Response Time:** 695ms
+**Response Time:** 754ms
 
 **Request:**
 ```json
@@ -386,7 +386,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9075-0001-3926010ab842\",\"result_set\":{\"data\":[[\"12\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":6}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c25114-0001-9075-0001-3926010ab842\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-39260111704e\",\"result_set\":{\"data\":[[\"12\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":6}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c2582d-0001-9161-0001-39260111704e\"}}"
       }
     ],
     "isError": false
@@ -426,7 +426,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-8fca-0001-3926010a9aa6\",\"result_set\":{\"data\":[[\"126\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":7}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c25114-0001-8fca-0001-3926010a9aa6\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9123-0001-392601116f4e\",\"result_set\":{\"data\":[[\"126\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":7}],\"rowType\":[{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c2582d-0001-9123-0001-392601116f4e\"}}"
       }
     ],
     "isError": false
@@ -440,7 +440,7 @@
 
 **Category:** Aggregations  
 **Status Code:** 200  
-**Response Time:** 650ms
+**Response Time:** 2628ms
 
 **Request:**
 ```json
@@ -466,7 +466,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9027-0001-3926010aaaa2\",\"result_set\":{\"data\":[[\"MINOR\",\"90\"],[\"MAJOR\",\"56\"],[\"WARNING\",\"2\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":3,\"partition\":0,\"partitionInfo\":[{\"rowCount\":3,\"uncompressedSize\":58}],\"rowType\":[{\"length\":16777216,\"name\":\"SEVERITY\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c25114-0001-9027-0001-3926010aaaa2\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-392601117052\",\"result_set\":{\"data\":[[\"MINOR\",\"90\"],[\"MAJOR\",\"56\"],[\"WARNING\",\"2\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":3,\"partition\":0,\"partitionInfo\":[{\"rowCount\":3,\"uncompressedSize\":58}],\"rowType\":[{\"length\":16777216,\"name\":\"SEVERITY\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c2582d-0001-9161-0001-392601117052\"}}"
       }
     ],
     "isError": false
@@ -480,7 +480,7 @@
 
 **Category:** Aggregations  
 **Status Code:** 200  
-**Response Time:** 628ms
+**Response Time:** 689ms
 
 **Request:**
 ```json
@@ -506,7 +506,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9027-0001-3926010aaaa6\",\"result_set\":{\"data\":[[\"BARCELONA\",\"148\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":30}],\"rowType\":[{\"length\":16777216,\"name\":\"REGION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c25114-0001-9027-0001-3926010aaaa6\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-392601117056\",\"result_set\":{\"data\":[[\"BARCELONA\",\"148\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":30}],\"rowType\":[{\"length\":16777216,\"name\":\"REGION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c2582d-0001-9161-0001-392601117056\"}}"
       }
     ],
     "isError": false
@@ -520,7 +520,7 @@
 
 **Category:** Aggregations  
 **Status Code:** 200  
-**Response Time:** 622ms
+**Response Time:** 1616ms
 
 **Request:**
 ```json
@@ -546,7 +546,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9075-0001-3926010ab846\",\"result_set\":{\"data\":[[\"LTE_RSRQ\",\"-9.8000000000000007\"],[\"PRB_UTIL\",\"54.060000000000002\"],[\"RSRP\",\"-94.530000000000001\"],[\"SINR\",\"17.109999999999999\"],[\"THROUGHPUT\",\"111.16\"],[\"DATA_SESSION_SETUP_TIME\",\"82.879999999999995\"],[\"BACKHAUL_LATENCY\",\"82.299999999999997\"],[\"5G_RSRQ\",\"-9.8000000000000007\"],[\"VOLTE_DROP_RATE\",\"0.87\"],[\"ERAB_DROP_RATE\",\"0.71999999999999997\"],[\"PAGING_SUCCESS\",\"98.469999999999999\"],[\"PACKET_LOSS\",\"0.78000000000000003\"],[\"CPU_UTIL\",\"64.370000000000005\"],[\"MEM_UTIL\",\"70.900000000000006\"],[\"SESSION_FAIL_RATE\",\"0.93999999999999995\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":15,\"partition\":0,\"partitionInfo\":[{\"rowCount\":15,\"uncompressedSize\":561}],\"rowType\":[{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"AVG\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"}]},\"statementHandle\":\"01c25114-0001-9075-0001-3926010ab846\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9123-0001-392601116f62\",\"result_set\":{\"data\":[[\"LTE_RSRQ\",\"-9.8000000000000007\"],[\"PRB_UTIL\",\"54.060000000000002\"],[\"RSRP\",\"-94.530000000000001\"],[\"SINR\",\"17.109999999999999\"],[\"THROUGHPUT\",\"111.16\"],[\"DATA_SESSION_SETUP_TIME\",\"82.879999999999995\"],[\"BACKHAUL_LATENCY\",\"82.299999999999997\"],[\"5G_RSRQ\",\"-9.8000000000000007\"],[\"VOLTE_DROP_RATE\",\"0.87\"],[\"ERAB_DROP_RATE\",\"0.71999999999999997\"],[\"PAGING_SUCCESS\",\"98.469999999999999\"],[\"PACKET_LOSS\",\"0.78000000000000003\"],[\"CPU_UTIL\",\"64.370000000000005\"],[\"MEM_UTIL\",\"70.900000000000006\"],[\"SESSION_FAIL_RATE\",\"0.93999999999999995\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":15,\"partition\":0,\"partitionInfo\":[{\"rowCount\":15,\"uncompressedSize\":561}],\"rowType\":[{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"AVG\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"}]},\"statementHandle\":\"01c2582d-0001-9123-0001-392601116f62\"}}"
       }
     ],
     "isError": false
@@ -560,7 +560,7 @@
 
 **Category:** Aggregations  
 **Status Code:** 200  
-**Response Time:** 645ms
+**Response Time:** 728ms
 
 **Request:**
 ```json
@@ -586,7 +586,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-8fca-0001-3926010a9aaa\",\"result_set\":{\"data\":[[\"P1\",\"1\"],[\"P2\",\"6\"],[\"P3\",\"9\"],[\"P4\",\"2\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":4,\"partition\":0,\"partitionInfo\":[{\"rowCount\":4,\"uncompressedSize\":57}],\"rowType\":[{\"length\":16777216,\"name\":\"PRIORITY\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c25114-0001-8fca-0001-3926010a9aaa\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-39260111705a\",\"result_set\":{\"data\":[[\"P1\",\"1\"],[\"P2\",\"6\"],[\"P3\",\"9\"],[\"P4\",\"2\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":4,\"partition\":0,\"partitionInfo\":[{\"rowCount\":4,\"uncompressedSize\":57}],\"rowType\":[{\"length\":16777216,\"name\":\"PRIORITY\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c2582d-0001-9161-0001-39260111705a\"}}"
       }
     ],
     "isError": false
@@ -600,7 +600,7 @@
 
 **Category:** Aggregations  
 **Status Code:** 200  
-**Response Time:** 625ms
+**Response Time:** 1612ms
 
 **Request:**
 ```json
@@ -626,7 +626,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9075-0001-3926010ab84a\",\"result_set\":{\"data\":[[\"9900\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":19}],\"rowType\":[{\"length\":0,\"name\":\"TOTAL\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"}]},\"statementHandle\":\"01c25114-0001-9075-0001-3926010ab84a\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9123-0001-392601116f66\",\"result_set\":{\"data\":[[\"9900\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":1,\"partition\":0,\"partitionInfo\":[{\"rowCount\":1,\"uncompressedSize\":19}],\"rowType\":[{\"length\":0,\"name\":\"TOTAL\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"}]},\"statementHandle\":\"01c2582d-0001-9123-0001-392601116f66\"}}"
       }
     ],
     "isError": false
@@ -640,7 +640,7 @@
 
 **Category:** Filters  
 **Status Code:** 200  
-**Response Time:** 649ms
+**Response Time:** 617ms
 
 **Request:**
 ```json
@@ -666,7 +666,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9027-0001-3926010aaaaa\",\"result_set\":{\"data\":[[\"CELL-1202\",\"PRB utilization above 90%\"],[\"CELL-1002\",\"PRB utilization above 90%\"],[\"CELL-1103\",\"PRB utilization above 90%\"],[\"CELL-1201\",\"PRB utilization above 90%\"],[\"CELL-1103\",\"RSRP/RSRQ degradation observed\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":229}],\"rowType\":[{\"length\":16777216,\"name\":\"CELL_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"DESCRIPTION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c25114-0001-9027-0001-3926010aaaaa\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9123-0001-392601116f6a\",\"result_set\":{\"data\":[[\"CELL-1202\",\"PRB utilization above 90%\"],[\"CELL-1002\",\"PRB utilization above 90%\"],[\"CELL-1103\",\"PRB utilization above 90%\"],[\"CELL-1201\",\"PRB utilization above 90%\"],[\"CELL-1103\",\"RSRP/RSRQ degradation observed\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":229}],\"rowType\":[{\"length\":16777216,\"name\":\"CELL_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"DESCRIPTION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c2582d-0001-9123-0001-392601116f6a\"}}"
       }
     ],
     "isError": false
@@ -680,7 +680,7 @@
 
 **Category:** Filters  
 **Status Code:** 200  
-**Response Time:** 633ms
+**Response Time:** 1634ms
 
 **Request:**
 ```json
@@ -706,7 +706,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9075-0001-3926010ab84e\",\"result_set\":{\"data\":[[\"CELL-1201\",\"PRB_UTIL\",\"0.87\"],[\"CELL-1102\",\"PRB_UTIL\",\"0.85999999999999999\"],[\"CELL-1003\",\"PRB_UTIL\",\"0.92000000000000004\"],[\"CELL-1003\",\"RSRP\",\"0.87\"],[\"CELL-1002\",\"PRB_UTIL\",\"0.92000000000000004\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":215}],\"rowType\":[{\"length\":16777216,\"name\":\"ELEMENT_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"SCORE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"}]},\"statementHandle\":\"01c25114-0001-9075-0001-3926010ab84e\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-392601117062\",\"result_set\":{\"data\":[[\"CELL-1201\",\"PRB_UTIL\",\"0.87\"],[\"CELL-1102\",\"PRB_UTIL\",\"0.85999999999999999\"],[\"CELL-1003\",\"PRB_UTIL\",\"0.92000000000000004\"],[\"CELL-1003\",\"RSRP\",\"0.87\"],[\"CELL-1002\",\"PRB_UTIL\",\"0.92000000000000004\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":215}],\"rowType\":[{\"length\":16777216,\"name\":\"ELEMENT_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"SCORE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"}]},\"statementHandle\":\"01c2582d-0001-9161-0001-392601117062\"}}"
       }
     ],
     "isError": false
@@ -720,7 +720,7 @@
 
 **Category:** Filters  
 **Status Code:** 200  
-**Response Time:** 625ms
+**Response Time:** 1593ms
 
 **Request:**
 ```json
@@ -746,7 +746,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9027-0001-3926010aaaae\",\"result_set\":{\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":0,\"partition\":0,\"partitionInfo\":[{\"rowCount\":0,\"uncompressedSize\":0}],\"rowType\":[{\"length\":16777216,\"name\":\"NUMBER\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"SHORT_DESCRIPTION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c25114-0001-9027-0001-3926010aaaae\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9123-0001-392601116f76\",\"result_set\":{\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":0,\"partition\":0,\"partitionInfo\":[{\"rowCount\":0,\"uncompressedSize\":0}],\"rowType\":[{\"length\":16777216,\"name\":\"NUMBER\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"SHORT_DESCRIPTION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c2582d-0001-9123-0001-392601116f76\"}}"
       }
     ],
     "isError": false
@@ -760,7 +760,7 @@
 
 **Category:** Filters  
 **Status Code:** 200  
-**Response Time:** 653ms
+**Response Time:** 1860ms
 
 **Request:**
 ```json
@@ -786,7 +786,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9027-0001-3926010aaab2\",\"result_set\":{\"data\":[[\"PRB_UTIL\",\"56.600000000000001\"],[\"RSRP\",\"-95.5\"],[\"SINR\",\"16.399999999999999\"],[\"THROUGHPUT\",\"120.2\"],[\"VOLTE_DROP_RATE\",\"0.71999999999999997\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":160}],\"rowType\":[{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"KPI_VALUE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"}]},\"statementHandle\":\"01c25114-0001-9027-0001-3926010aaab2\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-39260111706a\",\"result_set\":{\"data\":[[\"PRB_UTIL\",\"56.600000000000001\"],[\"RSRP\",\"-95.5\"],[\"SINR\",\"16.399999999999999\"],[\"THROUGHPUT\",\"120.2\"],[\"VOLTE_DROP_RATE\",\"0.71999999999999997\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":160}],\"rowType\":[{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"KPI_VALUE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"}]},\"statementHandle\":\"01c2582d-0001-9161-0001-39260111706a\"}}"
       }
     ],
     "isError": false
@@ -800,7 +800,7 @@
 
 **Category:** Joins  
 **Status Code:** 200  
-**Response Time:** 634ms
+**Response Time:** 1944ms
 
 **Request:**
 ```json
@@ -826,7 +826,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9027-0001-3926010aaab6\",\"result_set\":{\"data\":[[\"MAJOR\",\"RADIO_CELL\",\"56\"],[\"MINOR\",\"RADIO_CELL\",\"90\"],[\"WARNING\",\"CORE_NODE\",\"2\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":3,\"partition\":0,\"partitionInfo\":[{\"rowCount\":3,\"uncompressedSize\":96}],\"rowType\":[{\"length\":16777216,\"name\":\"SEVERITY\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"ELEMENT_TYPE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c25114-0001-9027-0001-3926010aaab6\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-392601117076\",\"result_set\":{\"data\":[[\"MAJOR\",\"RADIO_CELL\",\"56\"],[\"MINOR\",\"RADIO_CELL\",\"90\"],[\"WARNING\",\"CORE_NODE\",\"2\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":3,\"partition\":0,\"partitionInfo\":[{\"rowCount\":3,\"uncompressedSize\":96}],\"rowType\":[{\"length\":16777216,\"name\":\"SEVERITY\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"ELEMENT_TYPE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"CNT\",\"nullable\":false,\"precision\":18,\"scale\":0,\"type\":\"fixed\"}]},\"statementHandle\":\"01c2582d-0001-9161-0001-392601117076\"}}"
       }
     ],
     "isError": false
@@ -840,7 +840,7 @@
 
 **Category:** Joins  
 **Status Code:** 200  
-**Response Time:** 690ms
+**Response Time:** 608ms
 
 **Request:**
 ```json
@@ -866,7 +866,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-8fca-0001-3926010a9aae\",\"result_set\":{\"data\":[[\"P2\",\"Downtown congestion impacting data service\"],[\"P1\",\"Backhaul latency causing voice drops\"],[\"P2\",\"Elevated core CPU impacting session setup\"],[\"P2\",\"Backhaul issue resolved after reroute\"],[\"P3\",\"Evening capacity strain in central district\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":263}],\"rowType\":[{\"length\":16777216,\"name\":\"PRIORITY\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"SHORT_DESCRIPTION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c25114-0001-8fca-0001-3926010a9aae\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-39260111707a\",\"result_set\":{\"data\":[[\"P2\",\"Downtown congestion impacting data service\"],[\"P1\",\"Backhaul latency causing voice drops\"],[\"P2\",\"Elevated core CPU impacting session setup\"],[\"P2\",\"Backhaul issue resolved after reroute\"],[\"P3\",\"Evening capacity strain in central district\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":263}],\"rowType\":[{\"length\":16777216,\"name\":\"PRIORITY\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"SHORT_DESCRIPTION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c2582d-0001-9161-0001-39260111707a\"}}"
       }
     ],
     "isError": false
@@ -880,7 +880,7 @@
 
 **Category:** Views  
 **Status Code:** 200  
-**Response Time:** 680ms
+**Response Time:** 792ms
 
 **Request:**
 ```json
@@ -906,7 +906,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9027-0001-3926010aaaba\",\"result_set\":{\"data\":[[\"2026-02-22 11:30:00.000\",\"BARCELONA\",\"CELL-2502\",\"PRB_UTIL\",\"47\",\"%\",\"ERICSSON\",\"4G\"],[\"2026-02-22 11:30:00.000\",\"BARCELONA\",\"CELL-2502\",\"RSRP\",\"-92.299999999999997\",\"dBm\",\"ERICSSON\",\"4G\"],[\"2026-02-22 11:30:00.000\",\"BARCELONA\",\"CELL-2502\",\"SINR\",\"13.5\",\"dB\",\"ERICSSON\",\"4G\"],[\"2026-02-22 11:30:00.000\",\"BARCELONA\",\"CELL-2503\",\"PRB_UTIL\",\"56.600000000000001\",\"%\",\"ERICSSON\",\"5G\"],[\"2026-02-22 11:30:00.000\",\"BARCELONA\",\"CELL-2503\",\"RSRP\",\"-95.400000000000006\",\"dBm\",\"ERICSSON\",\"5G\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":499}],\"rowType\":[{\"length\":0,\"name\":\"TS\",\"nullable\":true,\"precision\":0,\"scale\":9,\"type\":\"timestamp_ntz\"},{\"length\":16777216,\"name\":\"REGION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"CELL_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"KPI_VALUE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"},{\"length\":16777216,\"name\":\"KPI_UNIT\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"VENDOR\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"TECH\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c25114-0001-9027-0001-3926010aaaba\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9123-0001-392601116f86\",\"result_set\":{\"data\":[[\"2026-02-22 11:30:00.000\",\"BARCELONA\",\"CELL-2502\",\"PRB_UTIL\",\"47\",\"%\",\"ERICSSON\",\"4G\"],[\"2026-02-22 11:30:00.000\",\"BARCELONA\",\"CELL-2502\",\"RSRP\",\"-92.299999999999997\",\"dBm\",\"ERICSSON\",\"4G\"],[\"2026-02-22 11:30:00.000\",\"BARCELONA\",\"CELL-2502\",\"SINR\",\"13.5\",\"dB\",\"ERICSSON\",\"4G\"],[\"2026-02-22 11:30:00.000\",\"BARCELONA\",\"CELL-2503\",\"PRB_UTIL\",\"56.600000000000001\",\"%\",\"ERICSSON\",\"5G\"],[\"2026-02-22 11:30:00.000\",\"BARCELONA\",\"CELL-2503\",\"RSRP\",\"-95.400000000000006\",\"dBm\",\"ERICSSON\",\"5G\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":499}],\"rowType\":[{\"length\":0,\"name\":\"TS\",\"nullable\":true,\"precision\":0,\"scale\":9,\"type\":\"timestamp_ntz\"},{\"length\":16777216,\"name\":\"REGION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"CELL_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"KPI_VALUE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"},{\"length\":16777216,\"name\":\"KPI_UNIT\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"VENDOR\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"TECH\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c2582d-0001-9123-0001-392601116f86\"}}"
       }
     ],
     "isError": false
@@ -920,7 +920,7 @@
 
 **Category:** Views  
 **Status Code:** 200  
-**Response Time:** 623ms
+**Response Time:** 1600ms
 
 **Request:**
 ```json
@@ -946,7 +946,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9075-0001-3926010ab852\",\"result_set\":{\"data\":[[\"2026-02-22 10:10:00.000\",\"BARCELONA\",\"CORE-BCN-01\",\"CPU_UTIL\",\"62.799999999999997\",\"%\",\"NOKIA\",\"CORE\"],[\"2026-02-22 10:10:00.000\",\"BARCELONA\",\"CORE-BCN-01\",\"MEM_UTIL\",\"70.099999999999994\",\"%\",\"NOKIA\",\"CORE\"],[\"2026-02-22 10:10:00.000\",\"BARCELONA\",\"CORE-BCN-01\",\"SESSION_FAIL_RATE\",\"0.82999999999999996\",\"%\",\"NOKIA\",\"CORE\"],[\"2026-02-22 10:10:00.000\",\"BARCELONA\",\"CORE-BCN-02\",\"CPU_UTIL\",\"62.299999999999997\",\"%\",\"HUAWEI\",\"CORE\"],[\"2026-02-22 10:10:00.000\",\"BARCELONA\",\"CORE-BCN-02\",\"MEM_UTIL\",\"69.200000000000003\",\"%\",\"HUAWEI\",\"CORE\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":551}],\"rowType\":[{\"length\":0,\"name\":\"TS\",\"nullable\":true,\"precision\":0,\"scale\":9,\"type\":\"timestamp_ntz\"},{\"length\":16777216,\"name\":\"REGION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"CELL_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"KPI_VALUE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"},{\"length\":16777216,\"name\":\"KPI_UNIT\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"VENDOR\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"TECH\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c25114-0001-9075-0001-3926010ab852\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-39260111707e\",\"result_set\":{\"data\":[[\"2026-02-22 10:10:00.000\",\"BARCELONA\",\"CORE-BCN-01\",\"CPU_UTIL\",\"62.799999999999997\",\"%\",\"NOKIA\",\"CORE\"],[\"2026-02-22 10:10:00.000\",\"BARCELONA\",\"CORE-BCN-01\",\"MEM_UTIL\",\"70.099999999999994\",\"%\",\"NOKIA\",\"CORE\"],[\"2026-02-22 10:10:00.000\",\"BARCELONA\",\"CORE-BCN-01\",\"SESSION_FAIL_RATE\",\"0.82999999999999996\",\"%\",\"NOKIA\",\"CORE\"],[\"2026-02-22 10:10:00.000\",\"BARCELONA\",\"CORE-BCN-02\",\"CPU_UTIL\",\"62.299999999999997\",\"%\",\"HUAWEI\",\"CORE\"],[\"2026-02-22 10:10:00.000\",\"BARCELONA\",\"CORE-BCN-02\",\"MEM_UTIL\",\"69.200000000000003\",\"%\",\"HUAWEI\",\"CORE\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":551}],\"rowType\":[{\"length\":0,\"name\":\"TS\",\"nullable\":true,\"precision\":0,\"scale\":9,\"type\":\"timestamp_ntz\"},{\"length\":16777216,\"name\":\"REGION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"CELL_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"KPI_VALUE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"},{\"length\":16777216,\"name\":\"KPI_UNIT\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"VENDOR\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"TECH\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c2582d-0001-9161-0001-39260111707e\"}}"
       }
     ],
     "isError": false
@@ -960,7 +960,7 @@
 
 **Category:** Views  
 **Status Code:** 200  
-**Response Time:** 657ms
+**Response Time:** 737ms
 
 **Request:**
 ```json
@@ -986,7 +986,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-8fca-0001-3926010a9ab2\",\"result_set\":{\"data\":[[\"2026-02-22 10:05:00.000\",\"BARCELONA\",\"CELL-0102\",\"BACKHAUL_LATENCY\",\"78.200000000000003\",\"ms\",\"ERICSSON\",\"4G\"],[\"2026-02-22 10:05:00.000\",\"BARCELONA\",\"CELL-0102\",\"PACKET_LOSS\",\"0.88\",\"%\",\"ERICSSON\",\"4G\"],[\"2026-02-22 10:05:00.000\",\"BARCELONA\",\"CELL-0202\",\"BACKHAUL_LATENCY\",\"79\",\"ms\",\"NOKIA\",\"4G\"],[\"2026-02-22 10:05:00.000\",\"BARCELONA\",\"CELL-0202\",\"PACKET_LOSS\",\"0.66000000000000003\",\"%\",\"NOKIA\",\"4G\"],[\"2026-02-22 10:05:00.000\",\"BARCELONA\",\"CELL-0302\",\"BACKHAUL_LATENCY\",\"81.299999999999997\",\"ms\",\"ERICSSON\",\"4G\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":532}],\"rowType\":[{\"length\":0,\"name\":\"TS\",\"nullable\":true,\"precision\":0,\"scale\":9,\"type\":\"timestamp_ntz\"},{\"length\":16777216,\"name\":\"REGION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"CELL_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"KPI_VALUE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"},{\"length\":16777216,\"name\":\"KPI_UNIT\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"VENDOR\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"TECH\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c25114-0001-8fca-0001-3926010a9ab2\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9123-0001-392601116f8e\",\"result_set\":{\"data\":[[\"2026-02-22 10:05:00.000\",\"BARCELONA\",\"CELL-0102\",\"BACKHAUL_LATENCY\",\"78.200000000000003\",\"ms\",\"ERICSSON\",\"4G\"],[\"2026-02-22 10:05:00.000\",\"BARCELONA\",\"CELL-0102\",\"PACKET_LOSS\",\"0.88\",\"%\",\"ERICSSON\",\"4G\"],[\"2026-02-22 10:05:00.000\",\"BARCELONA\",\"CELL-0202\",\"BACKHAUL_LATENCY\",\"79\",\"ms\",\"NOKIA\",\"4G\"],[\"2026-02-22 10:05:00.000\",\"BARCELONA\",\"CELL-0202\",\"PACKET_LOSS\",\"0.66000000000000003\",\"%\",\"NOKIA\",\"4G\"],[\"2026-02-22 10:05:00.000\",\"BARCELONA\",\"CELL-0302\",\"BACKHAUL_LATENCY\",\"81.299999999999997\",\"ms\",\"ERICSSON\",\"4G\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":532}],\"rowType\":[{\"length\":0,\"name\":\"TS\",\"nullable\":true,\"precision\":0,\"scale\":9,\"type\":\"timestamp_ntz\"},{\"length\":16777216,\"name\":\"REGION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"CELL_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"KPI_VALUE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"},{\"length\":16777216,\"name\":\"KPI_UNIT\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"VENDOR\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"TECH\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c2582d-0001-9123-0001-392601116f8e\"}}"
       }
     ],
     "isError": false
@@ -1000,7 +1000,7 @@
 
 **Category:** Views  
 **Status Code:** 200  
-**Response Time:** 622ms
+**Response Time:** 795ms
 
 **Request:**
 ```json
@@ -1026,7 +1026,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9075-0001-3926010ab856\",\"result_set\":{\"data\":[[\"2026-02-22 19:30:00.000\",\"BARCELONA\",\"CELL-1001\",\"PRB_UTIL\",\"0.78000000000000003\",\"ANOMALY\",\"v1.0\"],[\"2026-02-22 19:30:00.000\",\"BARCELONA\",\"CELL-1001\",\"RSRP\",\"0.69999999999999996\",\"ANOMALY\",\"v1.0\"],[\"2026-02-22 19:30:00.000\",\"BARCELONA\",\"CELL-1201\",\"PRB_UTIL\",\"0.87\",\"ANOMALY\",\"v1.0\"],[\"2026-02-22 19:30:00.000\",\"BARCELONA\",\"CELL-1201\",\"RSRP\",\"0.60999999999999999\",\"ANOMALY\",\"v1.0\"],[\"2026-02-22 19:30:00.000\",\"BARCELONA\",\"CELL-1102\",\"PRB_UTIL\",\"0.85999999999999999\",\"ANOMALY\",\"v1.0\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":501}],\"rowType\":[{\"length\":0,\"name\":\"TS\",\"nullable\":true,\"precision\":0,\"scale\":9,\"type\":\"timestamp_ntz\"},{\"length\":16777216,\"name\":\"REGION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"ELEMENT_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"SCORE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"},{\"length\":16777216,\"name\":\"LABEL\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"MODEL_VERSION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c25114-0001-9075-0001-3926010ab856\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-392601117086\",\"result_set\":{\"data\":[[\"2026-02-22 19:30:00.000\",\"BARCELONA\",\"CELL-1001\",\"PRB_UTIL\",\"0.78000000000000003\",\"ANOMALY\",\"v1.0\"],[\"2026-02-22 19:30:00.000\",\"BARCELONA\",\"CELL-1001\",\"RSRP\",\"0.69999999999999996\",\"ANOMALY\",\"v1.0\"],[\"2026-02-22 19:30:00.000\",\"BARCELONA\",\"CELL-1201\",\"PRB_UTIL\",\"0.87\",\"ANOMALY\",\"v1.0\"],[\"2026-02-22 19:30:00.000\",\"BARCELONA\",\"CELL-1201\",\"RSRP\",\"0.60999999999999999\",\"ANOMALY\",\"v1.0\"],[\"2026-02-22 19:30:00.000\",\"BARCELONA\",\"CELL-1102\",\"PRB_UTIL\",\"0.85999999999999999\",\"ANOMALY\",\"v1.0\"]],\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":5,\"partition\":0,\"partitionInfo\":[{\"rowCount\":5,\"uncompressedSize\":501}],\"rowType\":[{\"length\":0,\"name\":\"TS\",\"nullable\":true,\"precision\":0,\"scale\":9,\"type\":\"timestamp_ntz\"},{\"length\":16777216,\"name\":\"REGION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"ELEMENT_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"KPI_NAME\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":0,\"name\":\"SCORE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"real\"},{\"length\":16777216,\"name\":\"LABEL\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"MODEL_VERSION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c2582d-0001-9161-0001-392601117086\"}}"
       }
     ],
     "isError": false
@@ -1040,7 +1040,7 @@
 
 **Category:** Edge Cases  
 **Status Code:** 200  
-**Response Time:** 634ms
+**Response Time:** 628ms
 
 **Request:**
 ```json
@@ -1066,7 +1066,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-8fca-0001-3926010a9ab6\",\"result_set\":{\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":0,\"partition\":0,\"partitionInfo\":[{\"rowCount\":0,\"uncompressedSize\":0}],\"rowType\":[{\"length\":0,\"name\":\"TS\",\"nullable\":true,\"precision\":0,\"scale\":9,\"type\":\"timestamp_ntz\"},{\"length\":16777216,\"name\":\"REGION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"CELL_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"ALARM_CODE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"SEVERITY\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"DESCRIPTION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"INCIDENT_NUMBER\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c25114-0001-8fca-0001-3926010a9ab6\"}}"
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-39260111708a\",\"result_set\":{\"resultSetMetaData\":{\"format\":\"jsonv2\",\"numRows\":0,\"partition\":0,\"partitionInfo\":[{\"rowCount\":0,\"uncompressedSize\":0}],\"rowType\":[{\"length\":0,\"name\":\"TS\",\"nullable\":true,\"precision\":0,\"scale\":9,\"type\":\"timestamp_ntz\"},{\"length\":16777216,\"name\":\"REGION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"CELL_ID\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"ALARM_CODE\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"SEVERITY\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"DESCRIPTION\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"},{\"length\":16777216,\"name\":\"INCIDENT_NUMBER\",\"nullable\":true,\"precision\":0,\"scale\":0,\"type\":\"text\"}]},\"statementHandle\":\"01c2582d-0001-9161-0001-39260111708a\"}}"
       }
     ],
     "isError": false
@@ -1080,7 +1080,7 @@
 
 **Category:** Edge Cases  
 **Status Code:** 200  
-**Response Time:** 609ms
+**Response Time:** 620ms
 
 **Request:**
 ```json
@@ -1106,7 +1106,7 @@
     "content": [
       {
         "type": "text",
-        "text": "{\"query_id\":\"01c25114-0001-9075-0001-3926010ab85a\",\"result_set\":{\"data\":[[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"PRB_UTIL\",\"56.600000000000001\",\"%\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"RSRP\",\"-95.5\",\"dBm\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"SINR\",\"16.399999999999999\",\"dB\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"THROUGHPUT\",\"120.2\",\"Mbps\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"VOLTE_DROP_RATE\",\"0.71999999999999997\",\"%\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"ERAB_DROP_RATE\",\"0.84999999999999998\",\"%\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"DATA_SESSION_SETUP_TIME\",\"86.700000000000003\",\"ms\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"PAGING_SUCCESS\",\"98.469999999999999\",\"%\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"LTE_RSRQ\",\"-7.25\",\"dB\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"5G_RSRQ\",\"-7.5300000000000002\",\"dB\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-022\",\"PRB_UTIL\",\"53.299999999999997\",\"%\",\"SAMSUNG\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-022\",\"RSRP\",\"-94.099999999999994\",\"dBm\",\"SAMSUNG\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-022\",\"SINR\",\"16.800000000000001\",\"dB\",\"SAMSUNG\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-022\",\"THROUGHPUT\",\"115.5\",\"Mbps\",\"SAMSUNG\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-022\",\"VOLTE_DROP_RATE\",\"0.76000000000000001\",\"%\",\"SAMSUNG\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\
+        "text": "{\"query_id\":\"01c2582d-0001-9161-0001-39260111708e\",\"result_set\":{\"data\":[[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"PRB_UTIL\",\"56.600000000000001\",\"%\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"RSRP\",\"-95.5\",\"dBm\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"SINR\",\"16.399999999999999\",\"dB\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"THROUGHPUT\",\"120.2\",\"Mbps\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"VOLTE_DROP_RATE\",\"0.71999999999999997\",\"%\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"ERAB_DROP_RATE\",\"0.84999999999999998\",\"%\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"DATA_SESSION_SETUP_TIME\",\"86.700000000000003\",\"ms\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"PAGING_SUCCESS\",\"98.469999999999999\",\"%\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"LTE_RSRQ\",\"-7.25\",\"dB\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-021\",\"5G_RSRQ\",\"-7.5300000000000002\",\"dB\",\"NOKIA\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-022\",\"PRB_UTIL\",\"53.299999999999997\",\"%\",\"SAMSUNG\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-022\",\"RSRP\",\"-94.099999999999994\",\"dBm\",\"SAMSUNG\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-022\",\"SINR\",\"16.800000000000001\",\"dB\",\"SAMSUNG\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-022\",\"THROUGHPUT\",\"115.5\",\"Mbps\",\"SAMSUNG\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\"SCELL-022\",\"VOLTE_DROP_RATE\",\"0.76000000000000001\",\"%\",\"SAMSUNG\",\"5G\"],[\"2026-02-23 17:30:00.000\",\"BARCELONA\",\
 ... [truncated]
 ```
 
