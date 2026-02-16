@@ -32,7 +32,7 @@ This repo contains a telecom assurance demo for agentic workflows:
 └─────────────────────────────────────────────────────────────────────────────────┘
           ▲                                              ▲
           │ JSON-RPC/HTTPS                               │ REST API
-          │ Key-Pair JWT Auth                            │ Key-Pair JWT Auth
+          │ PAT / JWT Auth                               │ PAT / JWT Auth
           │                                              │
 ┌─────────────────────┐                      ┌─────────────────────┐
 │     ServiceNow      │                      │    A2A Wrapper      │
@@ -117,37 +117,53 @@ Run in order using Snowsight or SnowSQL as ACCOUNTADMIN:
 
 ---
 
-## Step 2: Generate RSA Key Pairs
+## Step 2: Authentication Options
 
-### For ServiceNow (MCP)
+Three authentication methods are available:
+
+| Method | Best For | Token Management |
+|--------|----------|------------------|
+| **PAT** (Recommended) | ServiceNow, M2M | Snowflake-managed, up to 365 days |
+| **JWT Key-Pair** | Self-managed tokens | You generate with private key |
+| **OAuth 2.0** | User-interactive apps | Auto-refresh tokens |
+
+### Option A: Programmatic Access Token (PAT) - Recommended
+
+PAT is the simplest for ServiceNow integration. Generate via SQL:
+
+```sql
+-- Generate PAT for A2A_SVC_USER (valid 15 days by default)
+ALTER USER A2A_SVC_USER ADD PROGRAMMATIC ACCESS TOKEN SERVICENOW_PAT
+  ROLE_RESTRICTION = TELCO_A2A_RL
+  COMMENT = 'PAT for ServiceNow Integration';
+```
+
+The token is returned once - save it securely. Use as:
+```
+Authorization: Bearer <PAT_TOKEN>
+```
+
+No additional headers required with PAT.
+
+### Option B: JWT Key-Pair Authentication
+
+Generate RSA key pairs:
 
 ```bash
 mkdir -p keys
-openssl genrsa 2048 | openssl pkcs8 -topk8 -inform PEM -out keys/servicenow_rsa_key.p8 -nocrypt
-openssl rsa -in keys/servicenow_rsa_key.p8 -pubout -out keys/servicenow_rsa_key.pub
-```
-
-### For A2A Wrapper
-
-```bash
 openssl genrsa 2048 | openssl pkcs8 -topk8 -inform PEM -out keys/a2a_rsa_key.p8 -nocrypt
 openssl rsa -in keys/a2a_rsa_key.p8 -pubout -out keys/a2a_rsa_key.pub
 ```
 
----
-
-## Step 3: Assign Public Keys to Users
-
+Assign to user:
 ```sql
--- ServiceNow user
-ALTER USER SERVICENOW_SVC_USER SET RSA_PUBLIC_KEY='<content of servicenow_rsa_key.pub>';
-
--- A2A user
 ALTER USER A2A_SVC_USER SET RSA_PUBLIC_KEY='<content of a2a_rsa_key.pub>';
+DESC USER A2A_SVC_USER;  -- Verify fingerprint
+```
 
--- Verify fingerprints
-DESC USER SERVICENOW_SVC_USER;
-DESC USER A2A_SVC_USER;
+JWT requires additional header:
+```
+X-Snowflake-Authorization-Token-Type: KEYPAIR_JWT
 ```
 
 ---
@@ -158,11 +174,19 @@ DESC USER A2A_SVC_USER;
 
 | Parameter | Value |
 |-----------|-------|
-| **Endpoint** | `https://<locator>.<region>.snowflakecomputing.com/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/mcp-servers/TELCO_ASSURANCE_MCP` |
-| **User** | `SERVICENOW_SVC_USER` |
-| **Authentication** | Key-Pair JWT (RS256) |
+| **MCP Endpoint** | `https://ra19199.eu-west-3.aws.snowflakecomputing.com/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/mcp-servers/TELCO_ASSURANCE_MCP` |
+| **A2A Endpoint** | `https://ra19199.eu-west-3.aws.snowflakecomputing.com/api/v2/databases/TELCO_AI_DB/schemas/NETWORK_ASSURANCE/agents/TELCO_ASSURANCE_AGENT:run` |
+| **User** | `A2A_SVC_USER` |
+| **Role** | `TELCO_A2A_RL` |
 
-### HTTP Headers
+### HTTP Headers (PAT - Recommended)
+
+```
+Content-Type: application/json
+Authorization: Bearer <PAT_TOKEN>
+```
+
+### HTTP Headers (JWT Key-Pair)
 
 ```
 Content-Type: application/json
@@ -305,11 +329,12 @@ python test_a2a.py --query "Show me network anomalies"
 
 | Issue | Solution |
 |-------|----------|
-| `390144: JWT token is invalid` | Check account format in JWT issuer |
+| `390144: JWT token is invalid` | Check account format in JWT issuer, or use PAT instead |
 | `002003: Object does not exist` | Use fully qualified table names |
-| `401 Unauthorized` | Verify key fingerprint matches |
-| `Unable to fetch tools` | Add `X-Snowflake-Authorization-Token-Type: KEYPAIR_JWT` header |
-| `Network policy violation` | Add IPs to allowlist |
+| `401 Unauthorized` | Verify key fingerprint matches (JWT) or token not expired (PAT) |
+| `Unable to fetch tools` | For JWT: add `X-Snowflake-Authorization-Token-Type: KEYPAIR_JWT` header |
+| `Network policy violation` | User has open network policy - check IP allowlist |
+| `PAT_INVALID` | Token expired or user not found - generate new PAT |
 
 ---
 
@@ -319,6 +344,7 @@ python test_a2a.py --query "Show me network anomalies"
 - [Snowflake Cortex Agent Docs](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents)
 - [Google A2A Protocol](https://github.com/google/a2a)
 - [Snowflake Key-Pair Authentication](https://docs.snowflake.com/en/user-guide/key-pair-auth)
+- [Snowflake Programmatic Access Tokens](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens)
 - [ServiceNow IntegrationHub](https://docs.servicenow.com/bundle/utah-integrate-applications/page/administer/integrationhub/concept/integrationhub.html)
 
 ---
