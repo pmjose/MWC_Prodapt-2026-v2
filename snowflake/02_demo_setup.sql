@@ -270,6 +270,82 @@ SELECT * FROM CMDB_RELATIONSHIPS;
 CREATE OR REPLACE VIEW EVENT_CORRELATION_RULES_V AS
 SELECT * FROM EVENT_CORRELATION_RULES;
 
+-- ============================================================================
+-- CUSTOMER IMPACT VIEWS (for ServiceNow polling)
+-- ============================================================================
+
+-- Alarms with customer impact (subscribers affected)
+CREATE OR REPLACE VIEW ALARM_CUSTOMER_IMPACT_V AS
+SELECT 
+    a.ts AS alarm_time,
+    a.region,
+    a.cell_id,
+    a.alarm_code,
+    a.severity,
+    a.description AS alarm_description,
+    a.incident_number,
+    sf.service_id,
+    sf.subscriber_count AS affected_subscribers,
+    sf.vip_subscribers AS affected_vip_subscribers,
+    CASE 
+        WHEN a.severity = 'CRITICAL' AND sf.vip_subscribers > 50 THEN 'P1-CRITICAL'
+        WHEN a.severity = 'CRITICAL' THEN 'P2-HIGH'
+        WHEN a.severity = 'MAJOR' AND sf.subscriber_count > 1000 THEN 'P2-HIGH'
+        WHEN a.severity = 'MAJOR' THEN 'P3-MEDIUM'
+        ELSE 'P4-LOW'
+    END AS recommended_priority
+FROM ALARMS a
+LEFT JOIN SERVICE_FOOTPRINTS sf 
+    ON REPLACE(a.cell_id, '-', '-0') = sf.element_id
+    OR a.cell_id = sf.element_id;
+
+-- Summary view for ServiceNow polling - aggregated impact per region
+CREATE OR REPLACE VIEW SERVICENOW_ALERT_QUEUE_V AS
+SELECT 
+    'ALARM' AS alert_type,
+    a.region,
+    a.severity,
+    COUNT(*) AS alarm_count,
+    SUM(sf.subscriber_count) AS total_affected_subscribers,
+    SUM(sf.vip_subscribers) AS total_affected_vip,
+    MAX(a.ts) AS latest_alarm_time
+FROM ALARMS a
+LEFT JOIN SERVICE_FOOTPRINTS sf 
+    ON REPLACE(a.cell_id, '-', '-0') = sf.element_id
+    OR a.cell_id = sf.element_id
+WHERE a.severity IN ('CRITICAL', 'MAJOR')
+GROUP BY a.region, a.severity
+
+UNION ALL
+
+SELECT 
+    'SLA_BREACH' AS alert_type,
+    region,
+    'CRITICAL' AS severity,
+    COUNT(*) AS alarm_count,
+    NULL AS total_affected_subscribers,
+    NULL AS total_affected_vip,
+    MAX(ts_start) AS latest_alarm_time
+FROM SLA_BREACHES
+GROUP BY region;
+
+-- Detailed customer impact for a specific cell (ServiceNow drill-down)
+CREATE OR REPLACE VIEW CELL_CUSTOMER_DETAIL_V AS
+SELECT 
+    sf.element_id AS cell_id,
+    sf.service_id,
+    sf.subscriber_count,
+    sf.vip_subscribers,
+    t.region,
+    t.element_type,
+    t.parent_id AS site_id,
+    sg.neighborhood,
+    sg.latitude,
+    sg.longitude
+FROM SERVICE_FOOTPRINTS sf
+LEFT JOIN TOPOLOGY t ON sf.element_id = t.element_id
+LEFT JOIN SITE_GEO sg ON t.parent_id = sg.site_id;
+
 -- 5) Optional: MCP server (Snowflake-managed) exposing SQL execution tool
 -- Reference: https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp
 -- Note: The MCP server is created in provisioning_setup.sql. This block is provided for reference only.
@@ -627,6 +703,41 @@ tables:
       - name: SITE_COUNT
         description: Count of sites
         expr: COUNT(*)
+
+  - name: SERVICE_FOOTPRINTS
+    description: Customer and subscriber data per network element. Use this to find how many customers or subscribers are affected by network issues.
+    base_table:
+      database: TELCO_AI_DB
+      schema: NETWORK_ASSURANCE
+      table: SERVICE_FOOTPRINTS
+    dimensions:
+      - name: SERVICE_ID
+        description: Service type (SVC-DATA for data services, SVC-VOICE for voice services)
+        expr: SERVICE_ID
+        data_type: VARCHAR
+      - name: ELEMENT_ID
+        description: Network element/cell identifier (e.g., CELL-0101)
+        expr: ELEMENT_ID
+        data_type: VARCHAR
+    facts:
+      - name: SUBSCRIBER_COUNT
+        description: Total number of subscribers/customers on this cell
+        expr: SUBSCRIBER_COUNT
+        data_type: INTEGER
+      - name: VIP_SUBSCRIBERS
+        description: Number of VIP/high-value customers on this cell
+        expr: VIP_SUBSCRIBERS
+        data_type: INTEGER
+    metrics:
+      - name: TOTAL_SUBSCRIBERS
+        description: Total subscribers across all cells
+        expr: SUM(SUBSCRIBER_COUNT)
+      - name: TOTAL_VIP_SUBSCRIBERS
+        description: Total VIP subscribers across all cells
+        expr: SUM(VIP_SUBSCRIBERS)
+      - name: AVG_SUBSCRIBERS_PER_CELL
+        description: Average subscribers per cell
+        expr: AVG(SUBSCRIBER_COUNT)
 $$);
 
 -- Grant SELECT on semantic view to roles
